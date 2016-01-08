@@ -1,0 +1,61 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "Loop forever",
+        "args": [],
+        "children": [
+            2,
+            3
+        ],
+        "decorators": [
+            4
+        ]
+    },
+    "2": {
+        "id": 2,
+        "class": "PlayAnimation",
+        "name": "Play greeting.keys",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "greeting.keys",
+            [
+                "(animation) => {",
+                "}"
+            ]
+        ]
+    },
+    "3": {
+        "id": 3,
+        "class": "PlayAnimation",
+        "name": "Play excited.keys",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "excited.keys",
+            [
+                "(animation) => {",
+                "}"
+            ]
+        ]
+    },
+    "4": {
+        "id": 4,
+        "class": "WhileCondition",
+        "name": "",
+        "asset-pack": "core",
+        "args": [
+            [
+                "() => {",
+                "}"
+            ],
+            [
+                "() => {",
+                "    //infinite loop",
+                "    return true;",
+                "}"
+            ]
+        ]
+    }
+}

@@ -6,9 +6,9 @@
         "args": [],
         "children": [
             2,
-            4,
+            18,
             9,
-            11
+            19
         ]
     },
     "2": {
@@ -40,20 +40,6 @@
         "asset-pack": "core",
         "args": [
             5000
-        ]
-    },
-    "4": {
-        "id": 4,
-        "class": "PlayAnimation",
-        "name": "Zero robot and FX_Blip",
-        "asset-pack": "core",
-        "parent": 1,
-        "args": [
-            "zero.keys",
-            [
-                "(animation) => {",
-                "}"
-            ]
         ]
     },
     "5": {
@@ -126,16 +112,40 @@
             ]
         ]
     },
-    "11": {
-        "id": 11,
-        "class": "PlayAnimation",
-        "name": "Zero robot and FX_Blip",
+    "18": {
+        "id": 18,
+        "class": "Subtree",
+        "name": "Center Robot",
         "asset-pack": "core",
         "parent": 1,
         "args": [
-            "zero.keys",
+            "common/center-robot",
             [
-                "(animation) => {",
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            [
+                "(treeResult) => {",
+                "}"
+            ]
+        ]
+    },
+    "19": {
+        "id": 19,
+        "class": "Subtree",
+        "name": "Center Robot",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "common/center-robot",
+            [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            [
+                "(treeResult) => {",
                 "}"
             ]
         ]

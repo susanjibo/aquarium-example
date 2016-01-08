@@ -1,0 +1,64 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "Loop forever",
+        "args": [],
+        "children": [
+            6,
+            9
+        ],
+        "decorators": []
+    },
+    "6": {
+        "id": 6,
+        "class": "PlayAnimation",
+        "name": "Play greeting.keys 3 times",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "greeting.keys",
+            [
+                "(animation) => {",
+                "}"
+            ]
+        ],
+        "decorators": [
+            10
+        ]
+    },
+    "9": {
+        "id": 9,
+        "class": "PlayAudio",
+        "name": "Play good job!",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "FX_GoodJob_01.mp3"
+        ]
+    },
+    "10": {
+        "id": 10,
+        "class": "WhileCondition",
+        "name": "",
+        "asset-pack": "core",
+        "args": [
+            [
+                "() => {",
+                "    //This function is called once at the start of this decorator.",
+                "    //Here we initialize a count varible.",
+                "    //`self` is an object scoped to all functions in a",
+                "    //single behavior instance.",
+                "    self.count = 3;",
+                "}"
+            ],
+            [
+                "() => {",
+                "    self.count--;",
+                "    return self.count !== 0;",
+                "}"
+            ]
+        ],
+        "parent": null
+    }
+}

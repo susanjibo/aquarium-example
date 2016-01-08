@@ -6,11 +6,12 @@ let factory = jibo.bt.factory;
 
 
 function start() {
-    let root = factory.create('../behaviors/04-while-condition');
+    let root = factory.create('../behaviors/07-continuous-look-at');
     root.start();
     let intervalId = setInterval(() => {
         if (root.status !== Status.IN_PROGRESS) {
             clearInterval(intervalId);
+            console.log('Behavior tree finished with status ' + root.status);
         }
         else {
             root.update();

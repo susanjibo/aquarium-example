@@ -9,7 +9,7 @@
   "dependencies": {
     "babel-core": "^5.4.5",
     "behaviorify": "git+ssh://git@github.jibo.com:sdk/behaviorify.git#v0.1.3",
-    "jibo": "git+ssh://git@github.jibo.com:sdk/jibo.git#v0.7.2"
+    "jibo": "git+ssh://git@github.jibo.com:sdk/jibo.git#dev"
   },
   "devDependencies": {
   },

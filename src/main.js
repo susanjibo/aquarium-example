@@ -6,7 +6,7 @@ let factory = jibo.bt.factory;
 
 
 function start() {
-    let root = factory.create('../behaviors/11-succeed-on');
+    let root = factory.create('../behaviors/12-start-on');
     root.start();
     let intervalId = setInterval(() => {
         if (root.status !== Status.IN_PROGRESS) {

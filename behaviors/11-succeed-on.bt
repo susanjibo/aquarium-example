@@ -182,12 +182,15 @@
         "args": [
             [
                 "() => {",
+                "    //called once when the decorator starts.",
                 "    self.timeToWait = 2000 + Math.random() * 4000;",
                 "    self.startTime = Date.now();",
                 "}"
             ],
             [
                 "() => {",
+                "    //this function is called every frame. The first time this function returns",
+                "    //true, the behavior is succeeded.",
                 "    //succeed if this behavior has been in progress for more than self.startTime",
                 "    return Date.now() - self.startTime > self.timeToWait;",
                 "}"

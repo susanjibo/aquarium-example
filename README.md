@@ -21,3 +21,7 @@ A `WhileCondition` is a decorator that will restart a behavior that succeeded if
 ## 05: More Advanced WhileCondition
 
 In this example, the `WhileCondition` is placed directly on an animation. It creates a `self.count` variable in its initialization function and decrements it each time its condition function is called. When the conditional returns false, the `WhileCondition` allows the `PlayAnimation` behavior to succeed and a sound is played.
+
+## 06: Single-Shot Look-At
+
+The `LookAt` behavior has two modes. In this example, the behavior is set to *single-shot*, which means that `getTarget` is called once, and the behavior succeeds once Jibo does a best-effort to look at that target. `TimeoutJs` is a behavior that does nothing for an amount of time.  

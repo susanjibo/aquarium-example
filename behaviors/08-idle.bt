@@ -79,7 +79,8 @@
         "class": "Blink",
         "asset-pack": "core",
         "parent": 19,
-        "args": []
+        "args": [],
+        "name": "Plays a blink animation"
     },
     "21": {
         "id": 21,

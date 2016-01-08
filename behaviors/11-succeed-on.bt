@@ -8,7 +8,9 @@
             2,
             18,
             9,
-            19
+            19,
+            20,
+            39
         ]
     },
     "2": {
@@ -133,6 +135,67 @@
     },
     "19": {
         "id": 19,
+        "class": "Subtree",
+        "name": "Center Robot",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "common/center-robot",
+            [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            [
+                "(treeResult) => {",
+                "}"
+            ]
+        ]
+    },
+    "20": {
+        "id": 20,
+        "class": "Subtree",
+        "name": "Idle for a random amount of time",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "08-idle",
+            [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            [
+                "(treeResult) => {",
+                "}"
+            ]
+        ],
+        "decorators": [
+            38
+        ]
+    },
+    "38": {
+        "id": 38,
+        "class": "SucceedOnCondition",
+        "name": "",
+        "asset-pack": "core",
+        "args": [
+            [
+                "() => {",
+                "    self.timeToWait = 2000 + Math.random() * 4000;",
+                "    self.startTime = Date.now();",
+                "}"
+            ],
+            [
+                "() => {",
+                "    //succeed if this behavior has been in progress for more than self.startTime",
+                "    return Date.now() - self.startTime > self.timeToWait;",
+                "}"
+            ]
+        ]
+    },
+    "39": {
+        "id": 39,
         "class": "Subtree",
         "name": "Center Robot",
         "asset-pack": "core",

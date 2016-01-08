@@ -22,7 +22,7 @@
                 "    let currentTime = Date.now();",
                 "    let delta = currentTime - notepad.lastTime;",
                 "    notepad.lastTime = currentTime;",
-                "    notepad.theta -= notepad.rate * delta / 1000;",
+                "    notepad.theta += notepad.rate * delta / 1000;",
                 "    let x = 2 * Math.cos(notepad.theta);",
                 "    let y = 2 * Math.sin(notepad.theta);",
                 "    return {x: x, y: y, z: 1};",

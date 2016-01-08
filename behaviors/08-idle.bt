@@ -21,8 +21,8 @@
         "parent": 3,
         "args": [],
         "children": [
-            18,
-            17
+            17,
+            18
         ],
         "decorators": [
             23
@@ -37,10 +37,10 @@
         "args": [
             [
                 "() => {",
-                "\tlet x = 1;",
-                "\tlet y = (1 - 2 * Math.random());",
-                "\tlet z = 0.7 + 0.5 * (1 - 2 * Math.random());",
-                "\treturn {x: x, y: y, z: z};",
+                "    let x = 1;",
+                "    let y = 0.5 - Math.random();",
+                "    let z = 0.7 + 0.3 * (0.5 - Math.random());",
+                "    return {x: x, y: y, z: z};",
                 "}"
             ]
         ]

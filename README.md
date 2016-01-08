@@ -24,4 +24,18 @@ In this example, the `WhileCondition` is placed directly on an animation. It cre
 
 ## 06: Single-Shot Look-At
 
-The `LookAt` behavior has two modes. In this example, the behavior is set to *single-shot*, which means that `getTarget` is called once, and the behavior succeeds once Jibo does a best-effort to look at that target. `TimeoutJs` is a behavior that does nothing for an amount of time.  
+The `LookAt` behavior has two modes. In this example, the behavior is set to *single-shot*, which means that `getTarget` is called once, and the behavior succeeds once Jibo does a best-effort to look at that target. `TimeoutJs` is a behavior that does nothing for an amount of time. The whole sequence is repeated.
+
+## 07: Continuous-Mode Look-At
+
+Here, `LookAt` is set to be continuous-mode. This means that `getTarget` will be called every frame to ask for a new target. In this mode, the behavior never succeeds. That is, it will always remain *in progress* until a decorator forces it to succeed or fail, or if a parent explicitly stops it.
+
+## 08: Idle
+
+This is very similar to example 06. But the look at sequence is also in parallel with an other sequence that makes Jibo blink at random intervals.
+
+## 09: Switch
+
+A `Switch` is how behavior trees deal with branching logic. `Switch` is very similar to a switch/case statement. The `Switch` will play its children in sequence until one succeeds. The `Case` decorator can fail a behavior before it's even started if its conditional returns false.
+
+In this example, an `ExecuteScript` behavior, sets a property on `notepad` that the `Case` decorators can check against. Thus, one of two animations will be played.

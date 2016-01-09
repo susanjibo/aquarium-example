@@ -13,7 +13,7 @@
     "2": {
         "id": 2,
         "class": "Subtree",
-        "name": "",
+        "name": "Idle",
         "asset-pack": "core",
         "parent": 1,
         "args": [
@@ -70,7 +70,7 @@
     "5": {
         "id": 5,
         "class": "PlayAnimation",
-        "name": "",
+        "name": "Do an excited dance",
         "asset-pack": "core",
         "parent": 1,
         "args": [

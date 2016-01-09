@@ -36,6 +36,8 @@
             "zero.keys",
             [
                 "(animation) => {",
+                "  let dofs = jibo.animate.dofs.ALL;",
+                "  animation.setDOFs(dofs.minus(dofs.LED));",
                 "}"
             ]
         ]

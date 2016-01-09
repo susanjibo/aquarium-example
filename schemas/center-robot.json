@@ -5,7 +5,7 @@
     "meta": [
         {
             "field": "isGlobal",
-            "description": "Center robot globally",
+            "description": "True to center robot globally. False to center robot locally",
             "defaultValue": true
         }
     ]

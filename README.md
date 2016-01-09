@@ -77,4 +77,10 @@ Decorators can also control when a behavior starts.
 
 `StartOnAnimEvent` was introduced in example 3, and prevents its behavior from starting until an event from an animation is dispatched.
 
-`StartOnCondition` is the most generic and flexible of the StartOn decorators, and will only start a behavior when the `condition` argument returns `true`. In this example, the `PlayAudio` behavior is started after a random amount of time between 2 and 6 seconds. The second `PlayAudio` behavior only starts after the `start` event is emitter from the global emitter. 
+`StartOnCondition` is the most generic and flexible of the StartOn decorators, and will only start a behavior when the `condition` argument returns `true`. In this example, the `PlayAudio` behavior is started after a random amount of time between 2 and 6 seconds. The second `PlayAudio` behavior only starts after the `start` event is emitter from the global emitter.
+
+## 13: Custom Behaviors
+
+Besides the build in behaviors and decorators included in the Jibo SDK, developers can create their own custom ones. A custom behavior consists of two parts: the behavior code (`src/behaviors/center-robot.js`) and the schema (`schema/center-robot.js`). In this example project, a custom behavior called CenterRobot is included. This behavior will either center the robot locally or globally. Globally centering Jibo will face him away from his cord in the back. Locally centering him, will make Jibo sit upright in whatever direction he last procedurally look at. in `behaviors/13-custom-behaviors.bt` the robot first looks right, then it centers globally, then looks right again and centers locally.
+
+## 14: Custom Decorators

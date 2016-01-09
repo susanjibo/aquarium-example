@@ -6,7 +6,7 @@ let factory = jibo.bt.factory;
 
 
 function start() {
-    let root = factory.create('../behaviors/13-custom-behaviors');
+    let root = factory.create('../behaviors/07-continuous-look-at.bt');
     root.start();
     let intervalId = setInterval(() => {
         if (root.status !== Status.IN_PROGRESS) {
@@ -16,6 +16,9 @@ function start() {
         else {
             root.update();
         }
+        // Uncomment this to test that electron is not throttling the skill
+        // when the eye faces away.
+        //console.log(Math.random()*100000000);
     }, 33);
 }
 

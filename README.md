@@ -1,5 +1,22 @@
 # Jibo Behavior Tree Examples
 
+## Before you open in Atom
+
+```
+cd sample-code
+npm install
+```
+If you don't `npm install` first you'll get errors in Atom.
+
+## Running an example tree
+
+In `src/main.js` find the line of code that creates the behavior tree.
+
+```
+let root = factory.create('../behaviors/01-sequence');
+```
+Replace the relative path to the example tree you want to run. Then `cmd-r` (windows `ctrl-r`) to run the example in the Jibo Simulator.
+
 ## 01: Sequence
 
 Plays two animations in sequence.
@@ -38,4 +55,12 @@ This is very similar to example 06. But the look at sequence is also in parallel
 
 A `Switch` is how behavior trees deal with branching logic. `Switch` is very similar to a switch/case statement. The `Switch` will play its children in sequence until one succeeds. The `Case` decorator can fail a behavior before it's even started if its conditional returns false.
 
-In this example, an `ExecuteScript` behavior, sets a property on `notepad` that the `Case` decorators can check against. Thus, one of two animations will be played.
+In this example, an `ExecuteScript` behavior sets a property on `notepad` that the `Case` decorators can check against. Thus, one of two animations will be played.
+
+## 10: Subtrees
+
+Subtrees are how behaviors trees deal with encapsulation. They are a way of treating a whole `.bt` file as a single behavior.
+
+The `getNotepad` argument allows a parent tree to prepopulate a Subtree's notepad. This is how behavior trees can pass arguments to a subtree. The **beahviors/10-subtrees/choose-animation.bt** plays an animation according to a property on its notepad. This notepad property is set by its parent tree.
+
+Subtrees can also return result. Every tree has a `result` object scoped to a single `.bt` file. Any function argument can add properties to this object. When the tree returns, its parent tree will get that result object. This is how behavior trees deal with return values. So imagine you have a subtree called `get-persons-name.bt`.

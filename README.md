@@ -77,4 +77,4 @@ Decorators can also control when a behavior starts.
 
 `StartOnAnimEvent` was introduced in example 3, and prevents its behavior from starting until an event from an animation is dispatched.
 
-`StartOnCondition` is the most generic and flexible of the StartOn decorators, and will only start an event when the `condition` argument returns `true`. In this example, the `PlayAudio` behavior is started after a random amount of time between 2 and 6 seconds. The second `PlayAudio` behavior only starts after the `start` event is emitter from the global emitter. 
+`StartOnCondition` is the most generic and flexible of the StartOn decorators, and will only start a behavior when the `condition` argument returns `true`. In this example, the `PlayAudio` behavior is started after a random amount of time between 2 and 6 seconds. The second `PlayAudio` behavior only starts after the `start` event is emitter from the global emitter. 

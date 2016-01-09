@@ -63,4 +63,18 @@ Subtrees are how behaviors trees deal with encapsulation. They are a way of trea
 
 The `getNotepad` argument allows a parent tree to prepopulate a Subtree's notepad. This is how behavior trees can pass arguments to a subtree. The **beahviors/10-subtrees/choose-animation.bt** plays an animation according to a property on its notepad. This notepad property is set by its parent tree.
 
-Subtrees can also return result. Every tree has a `result` object scoped to a single `.bt` file. Any function argument can add properties to this object. When the tree returns, its parent tree will get that result object. This is how behavior trees deal with return values. So imagine you have a subtree called `get-persons-name.bt`.
+Subtrees can also return result. Every tree has a `result` object scoped to a single `.bt` file. Any function argument can add properties to this object. When the tree returns, its parent tree will get that result object. This is how behavior trees deal with return values. So imagine you have a subtree called `get-persons-name.bt`: that subtree may be highly complex and encapsulate a range of behaviors such as voice recognition, facial identification, and simply asking someone what their name is. From the point of view of the parent tree, the mechanism by which that subtree obtains a person's name is a black box, but the end result is that that subtree returns the appropriate information.
+
+## 11: Succeed Decorators
+
+Succeed decorators force a behavior to succeed. It might force success from an emitted event from an animation or emitter, a conditional, or a timeout. More sophisticated success decorators might succeed a behavior if Jibo hears "Hey Jibo", or any arbitrary parsed rule.
+
+In this example, there are three subtrees which all point to the idle behavior tree, which never succeeds unless decorated or explicitly stopped by a parent. The first subtree succeeds after 5 seconds, then the robot zeros itself, blinks and plays a sound. The second subtree succeeds when an event is emitted from the `emitter` object available globally. The third subtree saves when it started and forces success after a period of time.
+
+## 12: StartOn Decorators
+
+Decorators can also control when a behavior starts.
+
+`StartOnAnimEvent` was introduced in example 3, and prevents its behavior from starting until an event from an animation is dispatched.
+
+`StartOnCondition` is the most generic and flexible of the StartOn decorators, and will only start an event when the `condition` argument returns `true`. In this example, the `PlayAudio` behavior is started after a random amount of time between 2 and 6 seconds. The second `PlayAudio` behavior only starts after the `start` event is emitter from the global emitter. 

@@ -13,7 +13,6 @@ module.exports = createBehavior({
     start: function() {
         this.status = Status.IN_PROGRESS;
         let dofs = jibo.animate.dofs;
-        console.log(this.isGlobal);
         jibo.animate.centerRobot(dofs.ALL, this.isGlobal, () => {
             this.status = Status.SUCCEEDED;
         });

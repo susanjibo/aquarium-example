@@ -126,3 +126,11 @@ update(result) {
 Multiple decorators can be on a behavior at once. The engine first updates the behavior then updates the decorators in order. The first decorator to return either `Status.FAILED` or `Status.SUCCEEDED` wins and all decorators on that behavior are stopped.
 
 In this example, we decorate a subtree with both a `FailOnTouch` and `SucceedOnTouch` decorator. The subtrees are under a `Sequence` and a `Switch`. In order for RobotCenter1 to be executed in the `Sequence`, the sibling above it must finish with status success. Because `SucceedOnTouch` is first, it wins, and succeeds the subtree. In order for CenterRobot2 to be executed in the `Switch`, the sibling above it must finish with status failed (remember `Switch` executes its children in order until one succees). Because `FailOnTouch` is first, it wins, and fails the subtree, allowing the robot to center.
+
+## 16: Hey Jibo
+
+Jibo can listen for speech through Audio Speech Recognition, or ASR. He has two types.
+1. The first is embedded phrase spotting. Phrase spotting tends to be faster and more accurate, but is quite limited in what it can listen for. For now, Jibo only has one phrase he can spot: "Hey Jibo".
+2. The second is cloud based, which can listen for any arbitrary speech, but tends to take a bit longer to process than the embedded type.
+
+In this example, we will have Jibo idling, but when he hears "Hey Jibo" he'll center himself and do an excited dance. We use a `SucceedOnEmbedded` decorator to force the idle subtree to succeed when Jibo hears "Hey Jibo". Launch the simulator, type `Hey Jibo` into the text chat window and press `return` and watch him do a dance.

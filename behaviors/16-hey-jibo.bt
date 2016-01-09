@@ -1,0 +1,84 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "args": [],
+        "children": [
+            2,
+            4,
+            5
+        ]
+    },
+    "2": {
+        "id": 2,
+        "class": "Subtree",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "08-idle.bt",
+            [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            [
+                "(treeResult) => {",
+                "}"
+            ]
+        ],
+        "decorators": [
+            3
+        ]
+    },
+    "3": {
+        "id": 3,
+        "class": "SucceedOnEmbedded",
+        "name": "",
+        "asset-pack": "core",
+        "args": [
+            "hey_jibo",
+            [
+                "() => {",
+                "    let options = {",
+                "        returnSpeakers: false,",
+                "        timeout: 0",
+                "    }",
+                "    return options;",
+                "}"
+            ],
+            [
+                "(listener) => {",
+                "    listener.on('hey-jibo', (asrResult, speakerIds) => {",
+                "",
+                "    });",
+                "}"
+            ]
+        ]
+    },
+    "4": {
+        "id": 4,
+        "class": "CenterRobot",
+        "name": "",
+        "asset-pack": "project",
+        "parent": 1,
+        "args": [
+            true
+        ]
+    },
+    "5": {
+        "id": 5,
+        "class": "PlayAnimation",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "excited.keys",
+            [
+                "(animation) => {",
+                "}"
+            ]
+        ]
+    }
+}

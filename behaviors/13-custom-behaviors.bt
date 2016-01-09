@@ -5,32 +5,13 @@
         "name": "",
         "args": [],
         "children": [
-            2,
-            3,
-            4
+            28,
+            5,
+            4,
+            29,
+            10,
+            16
         ]
-    },
-    "2": {
-        "id": 2,
-        "class": "PlayAnimation",
-        "name": "Look Right",
-        "asset-pack": "core",
-        "parent": 1,
-        "args": [
-            "look-right.keys",
-            [
-                "(animation) => {",
-                "}"
-            ]
-        ]
-    },
-    "3": {
-        "id": 3,
-        "class": "CenterRobot",
-        "name": "Center",
-        "asset-pack": "project",
-        "parent": 1,
-        "args": []
     },
     "4": {
         "id": 4,
@@ -40,6 +21,74 @@
         "parent": 1,
         "args": [
             "FX_Bloop.mp3"
+        ]
+    },
+    "5": {
+        "id": 5,
+        "class": "CenterRobot",
+        "name": "Center robot globally",
+        "asset-pack": "project",
+        "parent": 1,
+        "args": [
+            true
+        ]
+    },
+    "10": {
+        "id": 10,
+        "class": "CenterRobot",
+        "name": "Center robot locally",
+        "asset-pack": "project",
+        "parent": 1,
+        "args": [
+            false
+        ]
+    },
+    "16": {
+        "id": 16,
+        "class": "PlayAudio",
+        "name": "Bloop",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "FX_Bloop.mp3"
+        ]
+    },
+    "28": {
+        "id": 28,
+        "class": "LookAt",
+        "name": "Look left and down",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            [
+                "() => {",
+                "    return {x: 1, y: -1, z: 0.3};",
+                "}"
+            ],
+            false,
+            [
+                "(lookAt) => {",
+                "}"
+            ]
+        ]
+    },
+    "29": {
+        "id": 29,
+        "class": "LookAt",
+        "name": "Look left",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            [
+                "() => {",
+                "    return {x: 1, y: -1, z: 0.3};",
+                "}"
+            ],
+            false,
+            [
+                "(lookAt) => {",
+                "}"
+            ]
         ]
     }
 }

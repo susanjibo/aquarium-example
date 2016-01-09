@@ -1,7 +1,13 @@
 {
   "CenterRobot": {
     "type": "leaf",
-    "args": [],
-    "meta": []
+    "args": ["boolean"],
+    "meta": [
+        {
+            "field": "isGlobal",
+            "description": "Center robot globally",
+            "defaultValue": true
+        }
+    ]
   }
 }

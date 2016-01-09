@@ -1,0 +1,170 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "args": [],
+        "children": [
+            2,
+            7
+        ]
+    },
+    "2": {
+        "id": 2,
+        "class": "Sequence",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [],
+        "children": [
+            3,
+            20
+        ]
+    },
+    "3": {
+        "id": 3,
+        "class": "Subtree",
+        "name": "This will succeed",
+        "asset-pack": "core",
+        "parent": 2,
+        "args": [
+            "08-idle.bt",
+            [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            [
+                "(treeResult) => {",
+                "}"
+            ]
+        ],
+        "decorators": [
+            4,
+            5
+        ]
+    },
+    "4": {
+        "id": 4,
+        "class": "SucceedOnTouch",
+        "name": "",
+        "asset-pack": "project",
+        "args": [
+            [
+                "() => {",
+                "}"
+            ]
+        ]
+    },
+    "5": {
+        "id": 5,
+        "class": "FailOnTouch",
+        "name": "",
+        "asset-pack": "project",
+        "args": [
+            [
+                "() => {",
+                "}"
+            ]
+        ]
+    },
+    "7": {
+        "id": 7,
+        "class": "Switch",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [],
+        "children": [
+            8,
+            21
+        ]
+    },
+    "8": {
+        "id": 8,
+        "class": "Subtree",
+        "name": "This will fail",
+        "asset-pack": "core",
+        "parent": 7,
+        "args": [
+            "08-idle.bt",
+            [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            [
+                "(treeResult) => {",
+                "}"
+            ]
+        ],
+        "decorators": [
+            10,
+            9
+        ]
+    },
+    "9": {
+        "id": 9,
+        "class": "SucceedOnTouch",
+        "name": "",
+        "asset-pack": "project",
+        "args": [
+            [
+                "() => {",
+                "}"
+            ]
+        ],
+        "parent": null
+    },
+    "10": {
+        "id": 10,
+        "class": "FailOnTouch",
+        "name": "",
+        "asset-pack": "project",
+        "args": [
+            [
+                "() => {",
+                "}"
+            ]
+        ],
+        "parent": null
+    },
+    "20": {
+        "id": 20,
+        "class": "Subtree",
+        "name": "Robot will center",
+        "asset-pack": "core",
+        "parent": 2,
+        "args": [
+            "common/center-robot.bt",
+            [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            [
+                "(treeResult) => {",
+                "}"
+            ]
+        ]
+    },
+    "21": {
+        "id": 21,
+        "class": "Subtree",
+        "name": "Robot will center",
+        "asset-pack": "core",
+        "parent": 7,
+        "args": [
+            "common/center-robot.bt",
+            [
+                "() => {",
+                "    return {};",
+                "}"
+            ],
+            [
+                "(treeResult) => {",
+                "}"
+            ]
+        ]
+    }
+}

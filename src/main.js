@@ -6,7 +6,7 @@ let factory = jibo.bt.factory;
 
 
 function start() {
-    let root = factory.create('../behaviors/14-custom-decorators');
+    let root = factory.create('../behaviors/15-multiple-decorators');
     root.start();
     let intervalId = setInterval(() => {
         if (root.status !== Status.IN_PROGRESS) {
@@ -24,6 +24,7 @@ jibo.init(() => {
     //with the behavior factory.
     require('./behaviors/center-robot');
     require('./behaviors/succeed-on-touch');
+    require('./behaviors/fail-on-touch');
     //setup code for displaying Jibo's eye.
     let eyeElement = document.getElementById('eye');
     jibo.visualize.createRobotRenderer(eyeElement, jibo.visualize.DisplayType.EYE);

@@ -85,7 +85,9 @@ Besides the build in behaviors and decorators included in the Jibo SDK, develope
 
 ## 14: Custom Decorators
 
-Developers can also create custom decorators. Decorators are very similar to behaviors in how to code them and hook them up. The biggest difference is is the update function.
+Developers can also create custom decorators. In this example, `SucceedOnTouch` will force a behavior to succeed when Jibo's face is touched. In the simulator, click directly on his face.
+
+Decorators are very similar to behaviors in how to code them and hook them up. The biggest difference is is the update function.
 
 ### Behavior's update function
 A behavior just needs to return a status to the behavior tree engine.

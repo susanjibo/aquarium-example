@@ -120,3 +120,9 @@ update(result) {
     return result;
 }
 ```
+
+## 15: Multiple Decorators
+
+Multiple decorators can be on a behavior at once. The engine first updates the behavior then updates the decorators in order. The first decorator to return either `Status.FAILED` or `Status.SUCCEEDED` wins and all decorators on that behavior are stopped.
+
+In this example, we decorate a subtree with both a `FailOnTouch` and `SucceedOnTouch` decorator. The subtrees are under a `Sequence` and a `Switch`. In order for RobotCenter1 to be executed in the `Sequence`, the sibling above it must finish with status success. Because `SucceedOnTouch` is first, it wins, and succeeds the subtree. In order for CenterRobot2 to be executed in the `Switch`, the sibling above it must finish with status failed (remember `Switch` executes its children in order until one succees). Because `FailOnTouch` is first, it wins, and fails the subtree, allowing the robot to center.

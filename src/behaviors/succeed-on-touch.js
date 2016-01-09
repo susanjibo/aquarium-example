@@ -13,12 +13,19 @@ module.exports = createDecorator({
     },
     start: function() {
         this.status = Status.IN_PROGRESS;
-        document.addEventListener('onclick', this.onClickBind)
+        document.addEventListener('click', this.onClickBind);
         return true;
+    },
+    onClick: function() {
+        this.status = Status.SUCCEEDED;
+        this.cleanup();
+    },
+    cleanup: function() {
+        document.removeEventListener('onclick', this.onClickBind)
     },
     stop: function() {
         //cleanup if this decorator is stopped
-        document.removeEventListener('onclick', this.onClickBind)
+        this.cleanup();
     },
     update: function(result) {
         if(this.status === Status.SUCCEEDED) {

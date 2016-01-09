@@ -1,13 +1,13 @@
 {
-  "CenterRobot": {
-    "description": "Centers Jibo either locally or globally.",
-    "type": "leaf",
-    "args": ["boolean"],
+  "SucceedOnTouch": {
+    "description": "Forces a behavior to succeed when Jibo's face is touched.",
+    "type": "decorator",
+    "args": ["function"],
     "meta": [
         {
-            "field": "isGlobal",
-            "description": "True to center robot globally. False to center robot locally",
-            "defaultValue": true
+            "field": "onTouch",
+            "description": "Called when Jibo's face is touched",
+            "defaultValue": "() => {\n}"
         }
     ]
   }

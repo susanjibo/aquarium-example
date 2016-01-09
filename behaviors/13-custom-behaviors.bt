@@ -1,0 +1,45 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "args": [],
+        "children": [
+            2,
+            3,
+            4
+        ]
+    },
+    "2": {
+        "id": 2,
+        "class": "PlayAnimation",
+        "name": "Look Right",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "look-right.keys",
+            [
+                "(animation) => {",
+                "}"
+            ]
+        ]
+    },
+    "3": {
+        "id": 3,
+        "class": "CenterRobot",
+        "name": "Center",
+        "asset-pack": "project",
+        "parent": 1,
+        "args": []
+    },
+    "4": {
+        "id": 4,
+        "class": "PlayAudio",
+        "name": "Bloop",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "FX_Bloop.mp3"
+        ]
+    }
+}

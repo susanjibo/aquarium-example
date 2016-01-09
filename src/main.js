@@ -6,7 +6,7 @@ let factory = jibo.bt.factory;
 
 
 function start() {
-    let root = factory.create('../behaviors/07-continuous-look-at');
+    let root = factory.create('../behaviors/13-custom-behaviors');
     root.start();
     let intervalId = setInterval(() => {
         if (root.status !== Status.IN_PROGRESS) {
@@ -20,6 +20,10 @@ function start() {
 }
 
 jibo.init(() => {
+    //we need to require any custom behaviors so that they can register themselves
+    //with the behavior factory.
+    require('./behaviors/center-robot');
+    //setup code for displaying Jibo's eye.
     let eyeElement = document.getElementById('eye');
     jibo.visualize.createRobotRenderer(eyeElement, jibo.visualize.DisplayType.EYE);
     start();

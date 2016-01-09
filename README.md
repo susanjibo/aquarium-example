@@ -84,3 +84,37 @@ Decorators can also control when a behavior starts.
 Besides the build in behaviors and decorators included in the Jibo SDK, developers can create their own custom ones. A custom behavior consists of two parts: the behavior code (`src/behaviors/center-robot.js`) and the schema (`schema/center-robot.js`). In this example project, a custom behavior called CenterRobot is included. This behavior will either center the robot locally or globally. Globally centering Jibo will face him away from his cord in the back. Locally centering him, will make Jibo sit upright in whatever direction he last procedurally look at. in `behaviors/13-custom-behaviors.bt` the robot first looks right, then it centers globally, then looks right again and centers locally.
 
 ## 14: Custom Decorators
+
+Developers can also create custom decorators. Decorators are very similar to behaviors in how to code them and hook them up. The biggest difference is is the update function.
+
+### Behavior's update function
+A behavior just needs to return a status to the behavior tree engine.
+```
+update() {
+    return Status.IN_PROGRESS;
+}
+```
+### Decorator's update function
+When the engine runs its update cycle, it first updates the behavior before updating its decorators. The result of the behavior is passed into the update function of its decorators. Each decorator then has the opportunity to modify or change the status of the behavior its decorating.
+
+#### Decorator that at some point could force its behavior to succeed.
+```
+update(result) {
+    if(this.doForceSuccess) {
+        return Status.SUCCEEDED;
+    }
+    return result;
+}
+```
+#### Decorator that inverts the status of a finished behavior.
+```
+update(result) {
+    if(result === Status.SUCCEEDED) {
+        return Status.FAILED;
+    }
+    else if(result === Status.FAILED) {
+        return Status.SUCCEEDED;
+    }
+    return result;
+}
+```

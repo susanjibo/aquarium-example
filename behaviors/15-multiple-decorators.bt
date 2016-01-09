@@ -132,7 +132,7 @@
     "20": {
         "id": 20,
         "class": "Subtree",
-        "name": "Robot will center",
+        "name": "RobotCenter1",
         "asset-pack": "core",
         "parent": 2,
         "args": [
@@ -151,7 +151,7 @@
     "21": {
         "id": 21,
         "class": "Subtree",
-        "name": "Robot will center",
+        "name": "RobotCenter2",
         "asset-pack": "core",
         "parent": 7,
         "args": [

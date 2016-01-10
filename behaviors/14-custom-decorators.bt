@@ -12,7 +12,7 @@
     "2": {
         "id": 2,
         "class": "Subtree",
-        "name": "Idle until you tab Jibo's face",
+        "name": "Idle until you tap Jibo's face",
         "asset-pack": "core",
         "parent": 1,
         "args": [

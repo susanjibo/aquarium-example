@@ -1,12 +1,15 @@
 # Jibo Behavior Tree Examples
 
-## Before you open in Atom
+These samples progress through the different features of the behavior tree system. Each sample tree progresses off the concepts from the previous ones.
+
+## To View in Atom
+Make sure you install the `jibo` module.
 
 ```
 cd sample-code
 npm install
 ```
-If you don't `npm install` first you'll get errors in Atom.
+If you don't `npm install` first the behavior editor cannot render the behaviors.
 
 ## Running an example tree
 
@@ -137,8 +140,12 @@ Jibo can listen for speech through Audio Speech Recognition, or ASR. He has two 
 
 In this example, we will have Jibo idling, but when he hears "Hey Jibo" he'll center himself and do an excited dance. We use a `SucceedOnEmbedded` decorator to force the idle subtree to succeed when Jibo hears "Hey Jibo". Launch the simulator, type `Hey Jibo` into the text chat window and press `return` and watch him do a dance.
 
+##17: Jibo Makes a Reservation
+
+
+
 ## 18: `.bt` Files Are Node Modules
 
-`.bt` files get transpiled to JavaScript files through `behaviorify/register` at runtime. Since they are JavaScript, they can require external `.js` files like any other node module.
+`.bt` files get transpiled to JavaScript files through `behaviorify/register` at runtime. Since they are JavaScript, they can require external `.js` files like any other node module. While function arguments are very useful as the glue that helps behaviors and decorators communicate, having too much code in a single argument can get cumbersome. In these circumstance, refactoring the code into an external file can help.
 
-This behavior tree has one behavior which requires `src/look-and-dance.js`. This file blends a static and a procedural animation. This animation combines a continuous mode look at that fixes Jibo's eye on one point while looping a dance animation on his body DOFs. Once the dance is done, the look at instance is stopped and the callback is called. Back in the behavior tree, the success callback is executed and the tree returns with status success.
+This behavior tree contains an `ExecuteScript` which requires `src/look-and-dance.js`. This file blends a static and a procedural animation. This animation combines a continuous mode look at that fixes Jibo's eye on one point while looping a dance animation on his body DOFs. Once the dance is done, the look at instance is stopped and the callback is called. Back in the behavior tree, the success callback is executed, the robot centers, and the tree returns with status success.

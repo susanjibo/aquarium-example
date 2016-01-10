@@ -64,7 +64,7 @@ In this example, an `ExecuteScript` behavior sets a property on `notepad` that t
 
 Subtrees are how behaviors trees deal with encapsulation. They are a way of treating a whole `.bt` file as a single behavior.
 
-The `getNotepad` argument allows a parent tree to prepopulate a Subtree's notepad. This is how behavior trees can pass arguments to a subtree. The **beahviors/10-subtrees/choose-animation.bt** plays an animation according to a property on its notepad. This notepad property is set by its parent tree.
+The `getNotepad` argument allows a parent tree to prepopulate a Subtree's notepad. This is how behavior trees can pass arguments to a subtree. The `behviors/10-subtrees/choose-animation.bt` plays an animation according to a property on its notepad. This notepad property is set by its parent tree.
 
 Subtrees can also return result. Every tree has a `result` object scoped to a single `.bt` file. Any function argument can add properties to this object. When the tree returns, its parent tree will get that result object. This is how behavior trees deal with return values. So imagine you have a subtree called `get-persons-name.bt`: that subtree may be highly complex and encapsulate a range of behaviors such as voice recognition, facial identification, and simply asking someone what their name is. From the point of view of the parent tree, the mechanism by which that subtree obtains a person's name is a black box, but the end result is that that subtree returns the appropriate information.
 
@@ -142,7 +142,11 @@ In this example, we will have Jibo idling, but when he hears "Hey Jibo" he'll ce
 
 ##17: Jibo Makes a Reservation
 
+This is a small interaction where you ask Jibo to make a reservation. The `Listen` behavior points to the same rule file explained in the speech recognition tutorial in the developer documentation.
 
+The `Listen` behavior is in parallel with a sequence of an idle behavior and an `ExecuteScript` that centers the robot and turns on the LED. In the `Listen` behavior we listen for a 'hey-jibo' event and dispatch a 'listen' event which triggers the `SucceedOnEvent` decorator.
+
+When the `Listen` behavior gets a valid `NLParse`, set the `notepad.results`, which is later used in the `TextToSpeechJs` behavior to produce a response.
 
 ## 18: `.bt` Files Are Node Modules
 

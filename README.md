@@ -1,6 +1,6 @@
 # Jibo Behavior Tree Examples
 
-These samples progress through the different features of the behavior tree system. Each sample tree progresses off the concepts from the previous ones.
+These samples progress through the different features of the behavior tree system. Each sample tree progresses from the concepts from the previous ones. Refer to the developer documentation for further tools usage and API reference.
 
 ## To View in Atom
 Make sure you install the `jibo` module.
@@ -18,7 +18,7 @@ In `src/main.js` find the line of code that creates the behavior tree.
 ```
 let root = factory.create('../behaviors/01-sequence');
 ```
-Replace the relative path to the example tree you want to run. Then `cmd-r` (windows `ctrl-r`) to run the example in the Jibo Simulator.
+Replace the relative path to the example tree you want to run. Then `cmd-r` (windows `ctrl-r`) to run the example in the Jibo Simulator. To view the debugger, from the simulator press `cmd-opt-i` (windows `ctrl-alt-i`) or go to `View -> Developer -> Developer Tools`.
 
 ## 01: Sequence
 
@@ -30,7 +30,7 @@ Plays an animation and an audio file in parallel.
 
 ## 03: Generic Animation Event
 
-Animations (`.keys` files) have the ability to dispatch generic events at specific keyframes. In **animations/greeting-with-event.keys** an Event Layer is included. Click on the keyframe and notice that it is set to dispatch an event called `blink`. The animation system dispatches the event on an emitter that is being listened to by the `StartOnAnimEvent` decorator. This decorator will start its behavior when the specified event is heard.
+Animations (`.keys` files) have the ability to dispatch generic events at specific keyframes. In `animations/greeting-with-event.keys` an Event Layer is included. Click on the keyframe and notice that it is set to dispatch an event called `blink`. The animation system dispatches the event on an emitter that is being listened to by the `StartOnAnimEvent` decorator. This decorator will start its behavior when the specified event is heard.
 
 This allows a developer to hook up logic to synchronize with exact keyframes in an animation.
 

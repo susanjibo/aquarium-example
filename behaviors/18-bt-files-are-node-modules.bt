@@ -1,0 +1,28 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "args": [],
+        "children": [
+            2
+        ]
+    },
+    "2": {
+        "id": 2,
+        "class": "ExecuteScriptAsync",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            [
+                "(succeed, fail) => {",
+                "    let playDanceWithLookAt = require('../src/look-and-dance');",
+                "    playDanceWithLookAt(() => {",
+                "        succeed();",
+                "    });",
+                "}"
+            ]
+        ]
+    }
+}

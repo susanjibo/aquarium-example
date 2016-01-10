@@ -136,3 +136,9 @@ Jibo can listen for speech through Audio Speech Recognition, or ASR. He has two 
 2. The second is cloud based, which can listen for any arbitrary speech, but tends to take a bit longer to process than the embedded type.
 
 In this example, we will have Jibo idling, but when he hears "Hey Jibo" he'll center himself and do an excited dance. We use a `SucceedOnEmbedded` decorator to force the idle subtree to succeed when Jibo hears "Hey Jibo". Launch the simulator, type `Hey Jibo` into the text chat window and press `return` and watch him do a dance.
+
+## 18: `.bt` Files Are Node Modules
+
+`.bt` files get transpiled to JavaScript files through `behaviorify/register` at runtime. Since they are JavaScript, they can require external `.js` files like any other node module.
+
+This behavior tree has one behavior which requires `src/look-and-dance.js`. This file blends a static and a procedural animation. This animation combines a continuous mode look at that fixes Jibo's eye on one point while looping a dance animation on his body DOFs. Once the dance is done, the look at instance is stopped and the callback is called. Back in the behavior tree, the success callback is executed and the tree returns with status success.

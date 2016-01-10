@@ -93,7 +93,7 @@ SucceedOn decorators force a behavior to succeed. They may force success from an
 
 In this example, there are three subtrees that all point to the `idle` behavior tree, which never succeeds unless decorated or explicitly stopped by a parent. The first subtree succeeds after 5 seconds, and then the robot zeros itself, blinks, and plays a sound. The second subtree succeeds when an event is emitted from the `emitter` object, available globally. The third subtree saves its start time and forces success after a period of time has passed.
 
-## 12: StartOn Decorators
+### 12: StartOn Decorators
 
 Decorators can also control when a behavior starts.
 
@@ -151,13 +151,13 @@ update(result) {
 }
 ```
 
-## 15: Multiple Decorators
+### 15: Multiple Decorators
 
 Multiple decorators can be added to one behavior. The engine first updates the behavior, then updates the decorators in order from top to bottom. The first decorator to return either `Status.FAILED` or `Status.SUCCEEDED` wins, and all decorators on that behavior are stopped.
 
 In this example, a subtree is decorated with both a `FailOnTouch` and `SucceedOnTouch` decorator. The subtrees are under a `Sequence` and a `Switch`. In order for `RobotCenter1` to be executed in the `Sequence`, the sibling above it must finish with `Stats.SUCCEEDED`. Since `SucceedOnTouch` is first, it wins, and succeeds the subtree. In order for `CenterRobot2` to be executed in the `Switch`, the sibling above it must finish with `Status.FAILED`. (Remember that `Switch` executes its children in order until one succeeds.) Since `FailOnTouch` is first, it wins, and fails the subtree, allowing the robot to center.
 
-## 16: Hey Jibo
+### 16: Hey Jibo
 
 Jibo can listen for speech through Audio Speech Recognition (ASR). He has two types of listening capabilities:
 
@@ -169,7 +169,7 @@ In this example, Jibo idles until he hears "Hey Jibo," at which point he centers
 
 Launch the simulator, type `Hey Jibo` in the **Speak to Jibo here** box, press `enter`, and watch him dance.
 
-##17: Jibo Makes a Reservation
+### 17: Jibo Makes a Reservation
 
 This is a small interaction where you ask Jibo to make a reservation. The `Listen` behavior points to the same rule file explained in the [Speech Recognition](http://developer.jibo.com/sdk/docs/reference/jibo-atom-package/speech-recognition.html) section of the developer documentation.
 
@@ -177,7 +177,7 @@ The `Listen` behavior is in parallel with a sequence of an idle behavior and an 
 
 When the `Listen` behavior gets a valid `NLParse`, `notepad.results` is set, which is later used in the `TextToSpeechJs` behavior to produce a response.
 
-## 18: `.bt` Files Are Node Modules
+### 18: `.bt` Files Are Node Modules
 
 `.bt` files get transpiled to JavaScript files through `behaviorify/register` at runtime. Since they are JavaScript, they can require external `.js` files like any other node module. While function arguments are very useful as the glue that helps behaviors and decorators communicate, having too much code in a single argument can be cumbersome. In these circumstance, refactoring the code into an external file can help.
 

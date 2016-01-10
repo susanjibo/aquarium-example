@@ -10,7 +10,7 @@ module.exports = function(callback) {
     let keysPath = path.join(root, 'animations/dance.keys');
     let lookatBuilder = jibo.animate.createLookatBuilder();
     //this tells the animation system which part of the robot this animation
-    //controls. Here set to controll all parts except the body.
+    //controls. This controlls all parts except the body.
     lookatBuilder.setDOFs(dofs.ALL.minus(dofs.BODY));
     lookatBuilder.setContinuousMode(true);
     jibo.animate.createAnimationBuilderFromKeysPath(keysPath, root, (builder) => {

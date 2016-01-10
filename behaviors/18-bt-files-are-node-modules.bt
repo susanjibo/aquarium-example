@@ -12,7 +12,7 @@
     "2": {
         "id": 2,
         "class": "ExecuteScriptAsync",
-        "name": "",
+        "name": "Dance and look at",
         "asset-pack": "core",
         "parent": 1,
         "args": [
@@ -31,7 +31,7 @@
     "4": {
         "id": 4,
         "class": "Subtree",
-        "name": "",
+        "name": "Center robot",
         "asset-pack": "core",
         "parent": 1,
         "args": [

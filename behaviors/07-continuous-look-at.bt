@@ -56,7 +56,7 @@
                 "    notepad.rate = 30 * Math.PI / 180;",
                 "    notepad.lastTime = Date.now();",
                 "    //look only in this range",
-                "    notepad.range = 360 * Math.PI / 180;",
+                "    notepad.range = 180 * Math.PI / 180;",
                 "    notepad.direction = -1;",
                 "}"
             ]

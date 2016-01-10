@@ -135,7 +135,9 @@ In this example, we decorate a subtree with both a `FailOnTouch` and `SucceedOnT
 ## 16: Hey Jibo
 
 Jibo can listen for speech through Audio Speech Recognition, or ASR. He has two types.
+
 1. The first is embedded phrase spotting. Phrase spotting tends to be faster and more accurate, but is quite limited in what it can listen for. For now, Jibo only has one phrase he can spot: "Hey Jibo".
+
 2. The second is cloud based, which can listen for any arbitrary speech, but tends to take a bit longer to process than the embedded type.
 
 In this example, we will have Jibo idling, but when he hears "Hey Jibo" he'll center himself and do an excited dance. We use a `SucceedOnEmbedded` decorator to force the idle subtree to succeed when Jibo hears "Hey Jibo". Launch the simulator, type `Hey Jibo` into the text chat window and press `return` and watch him do a dance.

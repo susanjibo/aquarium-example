@@ -103,7 +103,7 @@ Decorators can also control when a behavior starts.
 
 ### 13: Custom Behaviors
 
-In addition to the built-in behaviors and decorators included in the Jibo SDK, developers can create their own custom ones. A custom behavior consists of two parts: the behavior code (`src/behaviors/center-robot.js`) and the schema (`schema/center-robot.js`). You must also `require` the behavior JavaScript file after `jibo.init` returns. See `src/main` for details.
+In addition to the built-in behaviors and decorators included in the Jibo SDK, developers can create their own custom ones. A custom behavior consists of two parts: the behavior code (`src/behaviors/center-robot.js`) and the schema (`schema/center-robot.json`). You must also `require` the behavior JavaScript file after `jibo.init` returns. See `src/main` for details.
 
 In this example project, a custom behavior called `CenterRobot` is included. This behavior will center the robot either globally or locally. Globally centering Jibo will face him away from his cord in the back. Locally centering him will make Jibo sit upright in whatever direction he last procedurally looked at. In `behaviors/13-custom-behaviors.bt`, the robot first looks right, then it centers globally, then looks right again, and then centers locally.
 

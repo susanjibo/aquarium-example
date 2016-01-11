@@ -20,12 +20,12 @@ function start() {
 }
 
 jibo.init(() => {
-    //we need to require any custom behaviors so that they can register themselves
+    //We need to require any custom behaviors so that they can register themselves
     //with the behavior factory.
     require('./behaviors/center-robot');
     require('./behaviors/succeed-on-touch');
     require('./behaviors/fail-on-touch');
-    //setup code for displaying Jibo's eye.
+    //Setup code for displaying Jibo's eye.
     let eyeElement = document.getElementById('eye');
     jibo.visualize.createRobotRenderer(eyeElement, jibo.visualize.DisplayType.EYE);
     start();

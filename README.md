@@ -1,110 +1,134 @@
 # Jibo Behavior Tree Examples
 
-These samples progress through the different features of the behavior tree system. Each sample tree progresses from the concepts from the previous ones. Refer to the developer documentation for further tools usage and API reference.
+These sample skills will walk you through different features of the Jibo SDK Behavior Tree Tool. Each sample builds on the previous one, so make sure to do them in order. Refer to the [Jibo SDK Documentation](http://developer.jibo.com/sdk/docs) for further tools usage and API reference.
 
-## To View in Atom
-Make sure you install the `jibo` module.
+## To view sample code:
+
+### 1. Install the sample-code skill and the jibo module
 
 ```
-cd sample-code
+git clone git@github.jibo.com:sdk/sample-code.git;
+cd sample-code;
 npm install
 ```
-If you don't `npm install` first the behavior editor cannot render the behaviors.
+If you don't `npm install`, the Behavior Tree Tool cannot render the behaviors.
 
-## Running an example tree
+### 2. Play a sample behavior tree in the simulator
 
-In `src/main.js` find the line of code that creates the behavior tree.
+1. Press **cmd-r** (Macs) or **ctrl-r** (PCs) to run the sample behavior tree in the Jibo simulator.
+2. To view the debugger, press **cmd-opt i** (Macs) or **ctrl-alt-i** (PCs), or click **View > Developer > Developer Tools**.
+3. Press **cmd-r** (Macs) or **ctrl-r** (PCs) to stop the simulator.
 
-```
-let root = factory.create('../behaviors/01-sequence');
-```
-Replace the relative path to the example tree you want to run. Then `cmd-r` (windows `ctrl-r`) to run the example in the Jibo Simulator. To view the debugger, from the simulator press `cmd-opt-i` (windows `ctrl-alt-i`) or go to `View -> Developer -> Developer Tools`.
 
-## 01: Sequence
+### 3. Switch to the next sample behavior tree
+
+1. Open the `sample-code` skill in Atom.
+  * If you don't see the Project pane, click **View > Toggle Tree View** to open it.
+1. Click **src > main.js** in the Project pane to open the skill's main.js file.
+3. Change the following line of code from:
+
+      `let root = factory.create('../behaviors/sequence-01');`
+
+      to
+
+      `let root = factory.create('../behaviors/sequence-XX);`
+
+      where `XX` is the number of the sample code listed below.
+
+## Sample Behavior trees
+
+### 01: Sequence
 
 Plays two animations in sequence.
 
-## 02: Parallel
+### 02: Parallel
 
 Plays an animation and an audio file in parallel.
 
-## 03: Generic Animation Event
+### 03: Generic Animation Event
 
-Animations (`.keys` files) have the ability to dispatch generic events at specific keyframes. In `animations/greeting-with-event.keys` an Event Layer is included. Click on the keyframe and notice that it is set to dispatch an event called `blink`. The animation system dispatches the event on an emitter that is being listened to by the `StartOnAnimEvent` decorator. This decorator will start its behavior when the specified event is heard.
+Animations (`.keys` files) have the ability to dispatch generic events at specific keyframes.
 
-This allows a developer to hook up logic to synchronize with exact keyframes in an animation.
+An Event layer is included in `animations/greeting-with-event.keys`. Click the keyframe at frame 30 on the Event layer; you'll see that it is set to dispatch an event called `blink` in the Name property. The animation system dispatches the event on an emitter that the `StartOnAnimEvent` decorator is listening for. This decorator will start the PlayAudio behavior when the `blink` event is heard.
 
-## 04: WhileCondition
+This allows a developer to synchronize logicwith exact keyframes in an animation.
 
-A `WhileCondition` is a decorator that will restart a behavior that succeeded if a condition is met. In this example the `WhileCondition` is restarting a sequence playing two animations. The effect is that these animations are played forever in a sequence.
+### 04: WhileCondition
 
-## 05: More Advanced WhileCondition
+A `WhileCondition` is a decorator that restarts a behavior that succeeds if a condition is met. In this example, the `WhileCondition` is restarting a sequence that plays two animations. Since the `WhileCondition` decorator always succeeds, these animations are played forever in sequence.
 
-In this example, the `WhileCondition` is placed directly on an animation. It creates a `self.count` variable in its initialization function and decrements it each time its condition function is called. When the conditional returns false, the `WhileCondition` allows the `PlayAnimation` behavior to succeed and a sound is played.
+### 05: More Advanced WhileCondition
 
-## 06: Single-Shot Look-At
+In this example, the `WhileCondition` decorates a `PlayAnimation` behavior directly. It creates a `self.count` variable in its initialization function and decrements the variable each time its condition function is called. When the conditional returns false (`self.count` is not 0), the `WhileCondition` allows the `PlayAnimation` behavior to succeed and a sound is played. As soon as `self.count` is decremented to 0, the `PlayAnimation` stops repeating.
 
-The `LookAt` behavior has two modes. In this example, the behavior is set to *single-shot*, which means that `getTarget` is called once, and the behavior succeeds once Jibo does a best-effort to look at that target. `TimeoutJs` is a behavior that does nothing for an amount of time. The whole sequence is repeated.
+### 06: Single-Shot Look-At
 
-## 07: Continuous-Mode Look-At
+The `LookAt` behavior has two modes. In this example, the behavior is set to *single-shot mode*, which means that `getTarget` is called once and the behavior succeeds once Jibo does a best-effort look at that target. `TimeoutJs` is a behavior that does nothing for an amount of time. The whole sequence is repeated.
 
-Here, `LookAt` is set to be continuous-mode. This means that `getTarget` will be called every frame to ask for a new target. In this mode, the behavior never succeeds. That is, it will always remain *in progress* until a decorator forces it to succeed or fail, or if a parent explicitly stops it.
+### 07: Continuous-Mode Look-At
 
-## 08: Idle
+In this example, `LookAt` is set to *continuous mode*. This means that `getTarget` will be called every frame to ask for a new target. In this mode, the behavior never succeeds; it always remains *in progress* until a decorator forces it to succeed or fail, or if a parent explicitly stops it.
 
-This is very similar to example 06. But the look at sequence is also in parallel with an other sequence that makes Jibo blink at random intervals.
+### 08: Idle
 
-## 09: Switch
+This sample is similar to example 06. In this example, the `LookAt` sequence executes in parallel with an other sequence that makes Jibo blink at random intervals.
 
-A `Switch` is how behavior trees deal with branching logic. `Switch` is very similar to a switch/case statement. The `Switch` will play its children in sequence until one succeeds. The `Case` decorator can fail a behavior before it's even started if its conditional returns false.
+### 09: Switch
 
-In this example, an `ExecuteScript` behavior sets a property on `notepad` that the `Case` decorators can check against. Thus, one of two animations will be played.
+A `Switch` allows for branching logic within behavior trees and operates similar to a switch/case statement. The `Switch` attempts to play its children in sequence until one succeeds. The `Case` decorator fails a behavior before it has started if its conditional returns false, forcing the `Switch` to move on to its next child.
 
-## 10: Subtrees
+In this example, an `ExecuteScript` behavior sets a property on `notepad` that the `Case` decorators check against. One of two animations will be played.
 
-Subtrees are how behaviors trees deal with encapsulation. They are a way of treating a whole `.bt` file as a single behavior.
+### 10: Subtrees
 
-The `getNotepad` argument allows a parent tree to prepopulate a Subtree's notepad. This is how behavior trees can pass arguments to a subtree. The `behviors/10-subtrees/choose-animation.bt` plays an animation according to a property on its notepad. This notepad property is set by its parent tree.
+A `Subtree` allows for encapsulation within are how behaviors trees. They treat a whole `.bt` file as a single behavior.
 
-Subtrees can also return result. Every tree has a `result` object scoped to a single `.bt` file. Any function argument can add properties to this object. When the tree returns, its parent tree will get that result object. This is how behavior trees deal with return values. So imagine you have a subtree called `get-persons-name.bt`: that subtree may be highly complex and encapsulate a range of behaviors such as voice recognition, facial identification, and simply asking someone what their name is. From the point of view of the parent tree, the mechanism by which that subtree obtains a person's name is a black box, but the end result is that that subtree returns the appropriate information.
+The `getNotepad` argument allows a parent tree to pre-populate a Subtree's notepad, allowing a behavior trees to pass arguments to a subtree. The `behviors/10-subtrees/choose-animation.bt` plays an animation according to a property on its notepad, which is set by its parent tree.
 
-## 11: Succeed Decorators
+Subtrees can also return results. Every tree has a `result` object scoped to a single `.bt` file. Any function argument can add properties to this object. When the subtree returns, its parent tree gets that result object. This is how behavior trees deal with return values. If, for example, you had subtree called `get-persons-name.bt`, that subtree might be highly complex and encapsulate a range of behaviors, such as voice recognition, facial identification, and text-to-speech. From the point of view of the parent tree, the mechanism by which that subtree obtains a person's name is a black box, but the end result is that that subtree returns the appropriate information.
 
-Succeed decorators force a behavior to succeed. It might force success from an emitted event from an animation or emitter, a conditional, or a timeout. More sophisticated success decorators might succeed a behavior if Jibo hears "Hey Jibo", or any arbitrary parsed rule.
+### 11: SucceedOn Decorators
 
-In this example, there are three subtrees which all point to the idle behavior tree, which never succeeds unless decorated or explicitly stopped by a parent. The first subtree succeeds after 5 seconds, then the robot zeros itself, blinks and plays a sound. The second subtree succeeds when an event is emitted from the `emitter` object available globally. The third subtree saves when it started and forces success after a period of time.
+SucceedOn decorators force a behavior to succeed. They may force success from an event emitted from an animation or emitter, a conditional, or a timeout. More sophisticated SucceedOn decorators might succeed a behavior if Jibo hears "Hey Jibo" or any arbitrary parsed rule.
 
-## 12: StartOn Decorators
+In this example, there are three subtrees that all point to the `idle` behavior tree, which never succeeds unless decorated or explicitly stopped by a parent. The first subtree succeeds after 5 seconds, and then the robot zeros itself, blinks, and plays a sound. The second subtree succeeds when an event is emitted from the `emitter` object, available globally. The third subtree saves its start time and forces success after a period of time has passed.
+
+### 12: StartOn Decorators
 
 Decorators can also control when a behavior starts.
 
-`StartOnAnimEvent` was introduced in example 3, and prevents its behavior from starting until an event from an animation is dispatched.
+`StartOnAnimEvent` was introduced in example 3, and prevents its behavior from starting until an event is dispatched from an animation.
 
-`StartOnCondition` is the most generic and flexible of the StartOn decorators, and will only start a behavior when the `condition` argument returns `true`. In this example, the `PlayAudio` behavior is started after a random amount of time between 2 and 6 seconds. The second `PlayAudio` behavior only starts after the `start` event is emitter from the global emitter.
+`StartOnCondition` is the most generic and flexible of the StartOn decorators, and will only start a behavior when the `condition` argument returns `true`. In this example, the `PlayAudio` behavior is started after a random amount of time between 2 and 6 seconds. The second `PlayAudio` behavior only starts after the `start` event is emitted from the global emitter.
 
-## 13: Custom Behaviors
+### 13: Custom Behaviors
 
-Besides the build in behaviors and decorators included in the Jibo SDK, developers can create their own custom ones. A custom behavior consists of two parts: the behavior code (`src/behaviors/center-robot.js`) and the schema (`schema/center-robot.js`). Also, don't forget to `require` the behavior JavaScript file after `jibo.init` returns. See `src/main` for details.
+In addition to the built-in behaviors and decorators included in the Jibo SDK, developers can create their own custom ones. A custom behavior consists of two parts: the behavior code (`src/behaviors/center-robot.js`) and the schema (`schema/center-robot.json`). You must also `require` the behavior JavaScript file after `jibo.init` returns. See `src/main` for details.
 
-In this example project, a custom behavior called CenterRobot is included. This behavior will either center the robot locally or globally. Globally centering Jibo will face him away from his cord in the back. Locally centering him, will make Jibo sit upright in whatever direction he last procedurally look at. in `behaviors/13-custom-behaviors.bt` the robot first looks right, then it centers globally, then looks right again and centers locally.
+In this example project, a custom behavior called `CenterRobot` is included. This behavior will center the robot either globally or locally. Globally centering Jibo will face him away from his cord in the back. Locally centering him will make Jibo sit upright in whatever direction he last procedurally looked at. In `behaviors/13-custom-behaviors.bt`, the robot first looks right, then it centers globally, then looks right again, and then centers locally.
 
-## 14: Custom Decorators
+### 14: Custom Decorators
 
-Developers can also create custom decorators. In this example, `SucceedOnTouch` will force a behavior to succeed when Jibo's face is touched. In the simulator, click directly on his face.
+Developers can also create custom decorators. In this example, `SucceedOnTouch` will force a behavior to succeed when Jibo's face is touched. In the simulator, click directly on Jibo's face to simulate touch input.
 
-Decorators are very similar to behaviors in how to code them and hook them up. The biggest difference is is the update function.
+Decorators are very similar to behaviors in how to code them and hook them up. The biggest difference is is the update function:
 
-### Behavior's update function
-A behavior just needs to return a status to the behavior tree engine.
+#### Behavior's update function
+
+A behavior only needs to return a status to the behavior tree engine.
+
 ```
 update() {
     return Status.IN_PROGRESS;
 }
 ```
-### Decorator's update function
-When the engine runs its update cycle, it first updates the behavior before updating its decorators. The result of the behavior is passed into the update function of its decorators. Each decorator then has the opportunity to modify or change the status of the behavior its decorating.
 
-#### Decorator that at some point could force its behavior to succeed.
+#### Decorator's update function
+
+When the engine runs its update cycle, it first updates the behavior before updating its decorators. The result of the behavior is passed into the update function of its decorators. Each decorator then has the opportunity to modify or change the status of the behavior its decorating:
+
+#### Decorator update function that can force its behavior to succeed.
+
 ```
 update(result) {
     if(this.doForceSuccess) {
@@ -113,7 +137,8 @@ update(result) {
     return result;
 }
 ```
-#### Decorator that inverts the status of a finished behavior.
+#### Decorator updated function that inverts the status of a finished behavior.
+
 ```
 update(result) {
     if(result === Status.SUCCEEDED) {
@@ -126,32 +151,34 @@ update(result) {
 }
 ```
 
-## 15: Multiple Decorators
+### 15: Multiple Decorators
 
-Multiple decorators can be on a behavior at once. The engine first updates the behavior then updates the decorators in order. The first decorator to return either `Status.FAILED` or `Status.SUCCEEDED` wins and all decorators on that behavior are stopped.
+Multiple decorators can be added to one behavior. The engine first updates the behavior, then updates the decorators in order from top to bottom. The first decorator to return either `Status.FAILED` or `Status.SUCCEEDED` wins, and all decorators on that behavior are stopped.
 
-In this example, we decorate a subtree with both a `FailOnTouch` and `SucceedOnTouch` decorator. The subtrees are under a `Sequence` and a `Switch`. In order for RobotCenter1 to be executed in the `Sequence`, the sibling above it must finish with status success. Because `SucceedOnTouch` is first, it wins, and succeeds the subtree. In order for CenterRobot2 to be executed in the `Switch`, the sibling above it must finish with status failed (remember `Switch` executes its children in order until one succees). Because `FailOnTouch` is first, it wins, and fails the subtree, allowing the robot to center.
+In this example, a subtree is decorated with both a `FailOnTouch` and `SucceedOnTouch` decorator. The subtrees are under a `Sequence` and a `Switch`. In order for `RobotCenter1` to be executed in the `Sequence`, the sibling above it must finish with `Stats.SUCCEEDED`. Since `SucceedOnTouch` is first, it wins, and succeeds the subtree. In order for `CenterRobot2` to be executed in the `Switch`, the sibling above it must finish with `Status.FAILED`. (Remember that `Switch` executes its children in order until one succeeds.) Since `FailOnTouch` is first, it wins, and fails the subtree, allowing the robot to center.
 
-## 16: Hey Jibo
+### 16: Hey Jibo
 
-Jibo can listen for speech through Audio Speech Recognition, or ASR. He has two types.
+Jibo can listen for speech through Audio Speech Recognition (ASR). He has two types of listening capabilities:
 
-1. The first is embedded phrase spotting. Phrase spotting tends to be faster and more accurate, but is quite limited in what it can listen for. For now, Jibo only has one phrase he can spot: "Hey Jibo".
+1. The first is embedded phrase-spotting. Phrase-spotting tends to be faster and more accurate, but is quite limited in what it can listen for. For now, Jibo only has one phrase he can spot: "Hey Jibo".
 
-2. The second is cloud based, which can listen for any arbitrary speech, but tends to take a bit longer to process than the embedded type.
+2. The second is cloud-based, which can listen for any arbitrary speech, but tends to take a bit longer to process than the embedded type.
 
-In this example, we will have Jibo idling, but when he hears "Hey Jibo" he'll center himself and do an excited dance. We use a `SucceedOnEmbedded` decorator to force the idle subtree to succeed when Jibo hears "Hey Jibo". Launch the simulator, type `Hey Jibo` into the text chat window and press `return` and watch him do a dance.
+In this example, Jibo idles until he hears "Hey Jibo," at which point he centers himself and does an excited dance. The `SucceedOnEmbedded` decorator forces the `idle` subtree to succeed when Jibo hears "Hey Jibo".
 
-##17: Jibo Makes a Reservation
+Launch the simulator, type `Hey Jibo` in the **Speak to Jibo here** box, press `enter`, and watch him dance.
 
-This is a small interaction where you ask Jibo to make a reservation. The `Listen` behavior points to the same rule file explained in the speech recognition tutorial in the developer documentation.
+### 17: Jibo Makes a Reservation
 
-The `Listen` behavior is in parallel with a sequence of an idle behavior and an `ExecuteScript` that centers the robot and turns on the LED. In the `Listen` behavior we listen for a 'hey-jibo' event and dispatch a 'listen' event which triggers the `SucceedOnEvent` decorator.
+This is a small interaction where you ask Jibo to make a reservation. The `Listen` behavior points to the same rule file explained in the [Speech Recognition](http://developer.jibo.com/sdk/docs/reference/jibo-atom-package/speech-recognition.html) section of the developer documentation.
 
-When the `Listen` behavior gets a valid `NLParse`, set the `notepad.results`, which is later used in the `TextToSpeechJs` behavior to produce a response.
+The `Listen` behavior is in parallel with a sequence of an idle behavior and an `ExecuteScript` that centers the robot and turns on the LED. In the `Listen` behavior, Jibo listens for a 'hey-jibo' event and dispatches a 'listen' event, which triggers the `SucceedOnEvent` decorator.
 
-## 18: `.bt` Files Are Node Modules
+When the `Listen` behavior gets a valid `NLParse`, `notepad.results` is set, which is later used in the `TextToSpeechJs` behavior to produce a response.
 
-`.bt` files get transpiled to JavaScript files through `behaviorify/register` at runtime. Since they are JavaScript, they can require external `.js` files like any other node module. While function arguments are very useful as the glue that helps behaviors and decorators communicate, having too much code in a single argument can get cumbersome. In these circumstance, refactoring the code into an external file can help.
+### 18: `.bt` Files Are Node Modules
 
-This behavior tree contains an `ExecuteScript` which requires `src/look-and-dance.js`. This file blends a static and a procedural animation. This animation combines a continuous mode look at that fixes Jibo's eye on one point while looping a dance animation on his body DOFs. Once the dance is done, the look at instance is stopped and the callback is called. Back in the behavior tree, the success callback is executed, the robot centers, and the tree returns with status success.
+`.bt` files get transpiled to JavaScript files through `behaviorify/register` at runtime. Since they are JavaScript, they can require external `.js` files like any other node module. While function arguments are very useful as the glue that helps behaviors and decorators communicate, having too much code in a single argument can be cumbersome. In these circumstance, refactoring the code into an external file can help.
+
+This behavior tree contains an `ExecuteScript` which requires `src/look-and-dance.js`. This file blends a static and a procedural animation. This animation combines a continuous mode `LookAt` that fixes Jibo's eye on one point while looping a dance animation on his body DOFs. Once the dance is over, the `LookAt` instance is stopped and the callback is called. In the behavior tree, the success callback is executed, the robot centers, and the tree returns with `Status.Succeeded`.

@@ -6,7 +6,7 @@ let factory = jibo.bt.factory;
 
 
 function start() {
-    let root = factory.create('../behaviors/18-bt-files-are-node-modules');
+    let root = factory.create('../behaviors/test');
     root.start();
     let intervalId = setInterval(() => {
         if (root.status !== Status.IN_PROGRESS) {

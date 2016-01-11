@@ -7,7 +7,8 @@
         "children": [
             2,
             4,
-            5
+            5,
+            8
         ]
     },
     "2": {
@@ -64,18 +65,27 @@
         "args": [
             "hey_jibo",
             [
-                "() => {",
-                "    let options = {",
-                "        authenticateSpeaker: false,",
-                "    }",
-                "    return options;",
-                "}"
-            ],
-            [
                 "(listener) => {",
                 "    listener.on('hey-jibo', (asrResult, speakerIds) => {",
                 "",
                 "    });",
+                "}"
+            ]
+        ]
+    },
+    "8": {
+        "id": 8,
+        "class": "ListenEmbedded",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            "hey_jibo",
+            [
+                "(listener) => {",
+                "\tlistener.on('hey-jibo', (asrResult, speakerIds) => {",
+                "",
+                "\t});",
                 "}"
             ]
         ]

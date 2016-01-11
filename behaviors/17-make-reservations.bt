@@ -72,7 +72,6 @@
                 "    let options = {",
                 "        heyJibo: true,",
                 "        detectEnd: true,",
-                "        returnSpeakers: false,",
                 "        incremental: false",
                 "    }",
                 "    return options;",

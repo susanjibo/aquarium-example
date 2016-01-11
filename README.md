@@ -167,7 +167,7 @@ Jibo can listen for speech through Audio Speech Recognition (ASR). He has two ty
 
 In this example, Jibo idles until he hears "Hey Jibo," at which point he centers himself and does an excited dance. The `SucceedOnEmbedded` decorator forces the `idle` subtree to succeed when Jibo hears "Hey Jibo".
 
-Launch the simulator, type `Hey Jibo` in the **Speak to Jibo here** box, press `enter`, and watch him dance.
+Launch the simulator, click on the `Chat` tab, and type `Hey Jibo` in the **Speak to Jibo here** box, press `enter`, and watch him dance.
 
 ### 17: Jibo Makes a Reservation
 
@@ -182,3 +182,11 @@ When the `Listen` behavior gets a valid `NLParse`, `notepad.results` is set, whi
 `.bt` files get transpiled to JavaScript files through `behaviorify/register` at runtime. Since they are JavaScript, they can require external `.js` files like any other node module. While function arguments are very useful as the glue that helps behaviors and decorators communicate, having too much code in a single argument can be cumbersome. In these circumstance, refactoring the code into an external file can help.
 
 This behavior tree contains an `ExecuteScript` which requires `src/look-and-dance.js`. This file blends a static and a procedural animation. This animation combines a continuous mode `LookAt` that fixes Jibo's eye on one point while looping a dance animation on his body DOFs. Once the dance is over, the `LookAt` instance is stopped and the callback is called. In the behavior tree, the success callback is executed, the robot centers, and the tree returns with `Status.Succeeded`.
+
+### 19: Jibo Sees the World
+
+In this example, we access Jibo's `Local Perceptual Space` in order to continuously look at a moving target (face) in the environment. We begin by requiring the `jibo` module to gain access to the `lps` module. We then call `jibo.lps.getClosestVisualEntity()` to get the closest item that Jibo believes is a human. This gives us back an `Entity` object. 
+
+From this object, we extract the position of the closest visual entity. Just like the Continuous `LookAt` in example 7, we return the position of the entity. If no entity is found, we return a constant position for him to look at. Because we have the `LookAt` behavior set to `Continuous Mode`, he will constantly be updating and looking for a target. 
+
+To see him look at a target, launch the simulator and click on `Add a Target` in the right-hand argument pane. A target will appear in Jibo's environment. You can manipulate the position of this target using the short cuts shown in the right-hand argument pane. You can also see the target's ID, x, y, and z position. 

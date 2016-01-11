@@ -185,8 +185,8 @@ This behavior tree contains an `ExecuteScript` which requires `src/look-and-danc
 
 ### 19: Jibo Sees the World
 
-In this example, we access Jibo's `Local Perceptual Space` in order to continuously look at a moving target (face) in the environment. We begin by requiring the `jibo` module to gain access to the `lps` module. We then call `jibo.lps.getClosestVisualEntity()` to get the closest item that Jibo believes is a human. This gives us back an `Entity` object. 
+In this example, we access Jibo's `Local Perceptual Space` in order to continuously look at a moving target (face) in the environment. We begin by calling `jibo.lps.getClosestVisualEntity()` to get the closest item that Jibo believes is a human. This gives us back an `Entity` object.
 
-From this object, we extract the position of the closest visual entity. Just like the Continuous `LookAt` in example 7, we return the position of the entity. If no entity is found, we return a constant position for him to look at. Because we have the `LookAt` behavior set to `Continuous Mode`, he will constantly be updating and looking for a target. 
+From this object, we extract the position of the closest visual entity. Just like the Continuous `LookAt` in example 7, we return the position of the entity. If no entity is found, we return a constant position for him to look at. Because we have the `LookAt` behavior set to `Continuous Mode`, he will constantly be updating and looking for a target.
 
-To see him look at a target, launch the simulator and click on `Add a Target` in the right-hand argument pane. A target will appear in Jibo's environment. You can manipulate the position of this target using the short cuts shown in the right-hand argument pane. You can also see the target's ID, x, y, and z position. 
+To see him look at a target, launch the simulator and click on `Add a Target` in the right-hand argument pane. A target will appear in Jibo's environment. You can manipulate the position of this target using the short cuts shown in the right-hand argument pane. You can also see the target's ID, x, y, and z position.

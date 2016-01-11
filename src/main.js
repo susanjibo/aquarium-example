@@ -6,7 +6,7 @@ let factory = jibo.bt.factory;
 
 
 function start() {
-    let root = factory.create('../behaviors/test');
+    let root = factory.create('../behaviors/19-continuous-lookat');
     root.start();
     let intervalId = setInterval(() => {
         if (root.status !== Status.IN_PROGRESS) {

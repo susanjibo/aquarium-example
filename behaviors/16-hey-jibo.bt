@@ -29,32 +29,7 @@
             ]
         ],
         "decorators": [
-            3
-        ]
-    },
-    "3": {
-        "id": 3,
-        "class": "SucceedOnEmbedded",
-        "name": "",
-        "asset-pack": "core",
-        "args": [
-            "hey_jibo",
-            [
-                "() => {",
-                "    let options = {",
-                "        returnSpeakers: false,",
-                "        timeout: 0",
-                "    }",
-                "    return options;",
-                "}"
-            ],
-            [
-                "(listener) => {",
-                "    listener.on('hey-jibo', (asrResult, speakerIds) => {",
-                "",
-                "    });",
-                "}"
-            ]
+            7
         ]
     },
     "4": {
@@ -77,6 +52,30 @@
             "excited.keys",
             [
                 "(animation) => {",
+                "}"
+            ]
+        ]
+    },
+    "7": {
+        "id": 7,
+        "class": "SucceedOnEmbedded",
+        "name": "",
+        "asset-pack": "core",
+        "args": [
+            "hey_jibo",
+            [
+                "() => {",
+                "    let options = {",
+                "        authenticateSpeaker: false,",
+                "    }",
+                "    return options;",
+                "}"
+            ],
+            [
+                "(listener) => {",
+                "    listener.on('hey-jibo', (asrResult, speakerIds) => {",
+                "",
+                "    });",
                 "}"
             ]
         ]

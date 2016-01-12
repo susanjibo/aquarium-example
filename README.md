@@ -157,7 +157,7 @@ Multiple decorators can be added to one behavior. The engine first updates the b
 
 In this example, a subtree is decorated with both a `FailOnTouch` and `SucceedOnTouch` decorator. The subtrees are under a `Sequence` and a `Switch`. In order for `RobotCenter1` to be executed in the `Sequence`, the sibling above it must finish with `Stats.SUCCEEDED`. Since `SucceedOnTouch` is first, it wins, and succeeds the subtree. In order for `CenterRobot2` to be executed in the `Switch`, the sibling above it must finish with `Status.FAILED`. (Remember that `Switch` executes its children in order until one succeeds.) Since `FailOnTouch` is first, it wins, and fails the subtree, allowing the robot to center.
 
-A `Switch` will play all of its behaviors in sequence until one succeeds. 
+A `Switch` will play all of its behaviors in sequence until one succeeds.
 
 ### 16: Hey Jibo
 
@@ -169,7 +169,7 @@ Jibo can listen for speech through Audio Speech Recognition (ASR). He has two ty
 
 In this example, Jibo idles until he hears "Hey Jibo," at which point he centers himself and does an excited dance. The `SucceedOnEmbedded` decorator forces the `idle` subtree to succeed when Jibo hears "Hey Jibo".
 
-Launch the simulator, click on the `Chat` tab, and type `Hey Jibo` in the **Speak to Jibo here** box, press `enter`, and watch him dance.
+Launch the simulator, click on the `Chat` tab, and type `Hey Jibo` in the **Speak to Jibo here** box, press `enter`, and watch him dance. Jibo will hear `Hey Jibo` even if you type other things before and afterwards. If you type `Hey Jibo` and continue typing, he will hear it as soon as you enter a space.
 
 ### 17: Jibo Makes a Reservation
 
@@ -192,3 +192,9 @@ In this example, we access Jibo's `Local Perceptual Space` in order to continuou
 From this object, we extract the position of the closest visual entity. Just like the Continuous `LookAt` in example 7, we return the position of the entity. If no entity is found, we return a constant position for him to look at. Because we have the `LookAt` behavior set to `Continuous Mode`, he will constantly be updating and looking for a target.
 
 To see him look at a target, launch the simulator and click on `Add a Target` in the right-hand argument pane. A target will appear in Jibo's environment. You can manipulate the position of this target using the short cuts shown in the right-hand argument pane. You can also see the target's ID, x, y, and z position.
+
+### 20: Jibo Sees and Listens
+
+Just like a physical robot, Jibo in the simulator is able to both see and listen to his environment. In this example, Jibo tracks a target using `19-lps.bt` Subtree, until he hears `Hey Jibo`. We then use a `Parallel` behavior to simultaneously execute a `TextToSpeechJs` which randomly selects from a few greeting phrases, and two `Random` behaviors. `Random` behaviors randomly choose one of their children to execute.  
+
+To see this in the simulator, launch the skill and add a target to the scene like we did in `19-lps`. You man manipulate the target just like in `19-lps` because we access it through a `Subtree`. To see the rest of the skill, click on the `Chat` tab and type `Hey Jibo` into the chat box. He will say one of the phrases we've given, and randomly execute one of the `PlayAudio` and `PlayAnimation` children of the `Random` behavior. Then since the whole sequence has a `WhileCondition`, the tree will restart. 

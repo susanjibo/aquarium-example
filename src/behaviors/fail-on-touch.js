@@ -14,7 +14,7 @@ module.exports = createDecorator({
         return this.decorator.start();
     },
     stop: function() {
-        this.this.decorator.stop();
+        this.decorator.stop();
     },
     update: function(result) {
         let status = this.decorator.update(result);

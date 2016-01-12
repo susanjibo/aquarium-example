@@ -157,6 +157,8 @@ Multiple decorators can be added to one behavior. The engine first updates the b
 
 In this example, a subtree is decorated with both a `FailOnTouch` and `SucceedOnTouch` decorator. The subtrees are under a `Sequence` and a `Switch`. In order for `RobotCenter1` to be executed in the `Sequence`, the sibling above it must finish with `Stats.SUCCEEDED`. Since `SucceedOnTouch` is first, it wins, and succeeds the subtree. In order for `CenterRobot2` to be executed in the `Switch`, the sibling above it must finish with `Status.FAILED`. (Remember that `Switch` executes its children in order until one succeeds.) Since `FailOnTouch` is first, it wins, and fails the subtree, allowing the robot to center.
 
+A `Switch` will play all of its behaviors in sequence until one succeeds. 
+
 ### 16: Hey Jibo
 
 Jibo can listen for speech through Audio Speech Recognition (ASR). He has two types of listening capabilities:

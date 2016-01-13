@@ -1,40 +1,37 @@
-# Jibo Behavior Tree Examples
+# Jibo SDK Sample Code
 
-These sample skills will walk you through different features of the Jibo SDK Behavior Tree Tool. Each sample builds on the previous one, so make sure to do them in order. Refer to the [Jibo SDK Documentation](https://developer.jibo.com/sdk/docs) for further tools usage and API reference.
+These sample skills will walk you through different features of the Jibo SDK Behavior Editor. Each sample builds on the previous one, so make sure to do them in order. Refer to the [Jibo SDK Documentation](https://developer.jibo.com/sdk/docs) for further tools usage and API reference.
 
 ## To view sample code:
 
-### 1. Install the sample-code skill and the jibo  module
+### 1. Install the sample-code skill
 
-To clone this repository via command line, run:
+You will need a [GitHub](https://github.com/) account and an [SSH key](https://help.github.com/articles/generating-ssh-keys/) to clone this repository.
+
+If you downloaded a ZIP file of the sample code, unzip it and skip to [Step 2](#install_the_jibo_module).
 
 ```
 git clone git@github.jibo.com:sdk/sample-code.git
-cd sample-code
-npm install
-atom .
+
 ```
 
-If you downloaded and unzipped a .zip of the sample code, run:
+### 2. Install the jibo module
 
 ```
 cd ~/<path>/sample-code
 npm install
 atom .
 ```
-
-  * Replace `<path>` with the path to the folder you downloaded.
-
 If you don't `npm install`, the Behavior Tree Tool cannot render the behaviors!
 
-### 2. Play a sample behavior tree in the simulator
+### 3. Play a sample behavior tree in the simulator
 
 1. Press **cmd-r** (Macs) or **ctrl-r** (PCs) to run the sample behavior tree in the Jibo simulator.
 2. To view the debugger, press **cmd-opt i** (Macs) or **ctrl-alt-i** (PCs), or click **View > Developer > Developer Tools**.
 3. Press **cmd-r** (Macs) or **ctrl-r** (PCs) to stop the simulator.
 
 
-### 3. Switch to the next sample behavior tree
+### 4. Switch to the next sample behavior tree
 
 1. Open the `sample-code` skill in Atom.
   * If you don't see the Project pane, click **View > Toggle Tree View** to open it.

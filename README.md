@@ -1,26 +1,37 @@
-# Jibo Behavior Tree Examples
+# Jibo SDK Sample Code
 
-These sample skills will walk you through different features of the Jibo SDK Behavior Tree Tool. Each sample builds on the previous one, so make sure to do them in order. Refer to the [Jibo SDK Documentation](http://developer.jibo.com/sdk/docs) for further tools usage and API reference.
+These sample skills will walk you through different features of the Jibo SDK Behavior Editor. Each sample builds on the previous one, so make sure to do them in order. Refer to the [Jibo SDK Documentation](https://developer.jibo.com/sdk/docs) for further tools usage and API reference.
 
 ## To view sample code:
 
-### 1. Install the sample-code skill and the jibo module
+### 1. Install the sample-code skill
+
+You will need a [GitHub](https://github.com/) account and an [SSH key](https://help.github.com/articles/generating-ssh-keys/) to clone this repository.
+
+If you downloaded a ZIP file of the sample code, unzip it and skip to [Step 2](#install_the_jibo_module).
 
 ```
-git clone git@github.jibo.com:sdk/sample-code.git;
-cd sample-code;
+git clone git@github.jibo.com:sdk/sample-code.git
+
+```
+
+### 2. Install the jibo module
+
+```
+cd ~/<path>/sample-code
 npm install
+atom .
 ```
-If you don't `npm install`, the Behavior Tree Tool cannot render the behaviors.
+If you don't `npm install`, the Behavior Tree Tool cannot render the behaviors!
 
-### 2. Play a sample behavior tree in the simulator
+### 3. Play a sample behavior tree in the simulator
 
 1. Press **cmd-r** (Macs) or **ctrl-r** (PCs) to run the sample behavior tree in the Jibo simulator.
 2. To view the debugger, press **cmd-opt i** (Macs) or **ctrl-alt-i** (PCs), or click **View > Developer > Developer Tools**.
 3. Press **cmd-r** (Macs) or **ctrl-r** (PCs) to stop the simulator.
 
 
-### 3. Switch to the next sample behavior tree
+### 4. Switch to the next sample behavior tree
 
 1. Open the `sample-code` skill in Atom.
   * If you don't see the Project pane, click **View > Toggle Tree View** to open it.
@@ -35,7 +46,7 @@ If you don't `npm install`, the Behavior Tree Tool cannot render the behaviors.
 
       where `XX` is the number of the sample code listed below.
 
-## Sample Behavior trees
+## Sample Behavior Trees
 
 ### 01: Sequence
 
@@ -51,7 +62,7 @@ Animations (`.keys` files) have the ability to dispatch generic events at specif
 
 An Event layer is included in `animations/greeting-with-event.keys`. Click the keyframe at frame 30 on the Event layer; you'll see that it is set to dispatch an event called `blink` in the Name property. The animation system dispatches the event on an emitter that the `StartOnAnimEvent` decorator is listening for. This decorator will start the PlayAudio behavior when the `blink` event is heard.
 
-This allows a developer to synchronize logicwith exact keyframes in an animation.
+This allows a developer to synchronize logic with exact keyframes in an animation.
 
 ### 04: WhileCondition
 
@@ -173,7 +184,7 @@ Launch the simulator, click on the `Chat` tab, and type `Hey Jibo` in the **Spea
 
 ### 17: Jibo Makes a Reservation
 
-This is a small interaction where you ask Jibo to make a reservation. The `Listen` behavior points to the same rule file explained in the [Speech Recognition](http://developer.jibo.com/sdk/docs/reference/jibo-atom-package/speech-recognition.html) section of the developer documentation.
+This is a small interaction where you ask Jibo to make a reservation. The `Listen` behavior points to the same rule file explained in the [Speech Recognition](https://developer.jibo.com/sdk/docs/reference/jibo-atom-package/speech-recognition.html) section of the developer documentation.
 
 The `Listen` behavior is in parallel with a sequence of an idle behavior and an `ExecuteScript` that centers the robot and turns on the LED. In the `Listen` behavior, Jibo listens for a 'hey-jibo' event and dispatches a 'listen' event, which triggers the `SucceedOnEvent` decorator.
 
@@ -187,14 +198,14 @@ This behavior tree contains an `ExecuteScript` which requires `src/look-and-danc
 
 ### 19: Jibo Sees the World
 
-In this example, we access Jibo's `Local Perceptual Space` in order to continuously look at a moving target (face) in the environment. We begin by calling `jibo.lps.getClosestVisualEntity()` to get the closest item that Jibo believes is a human. This gives us back an `Entity` object.
+In this example, we access Jibo's Local Perceptual Space to continuously look at a moving target (face) in the environment. We begin by calling `jibo.lps.getClosestVisualEntity()` to get the closest item that Jibo believes is a human. This gives us back an `Entity` object.
 
-From this object, we extract the position of the closest visual entity. Just like the Continuous `LookAt` in example 7, we return the position of the entity. If no entity is found, we return a constant position for him to look at. Because we have the `LookAt` behavior set to `Continuous Mode`, he will constantly be updating and looking for a target.
+From this object, we extract the position of the closest visual entity. Just like the Continuous `LookAt` in example 7, we return the position of the entity. If no entity is found, we return a constant position for him to look at. Because we have the `LookAt` behavior set to continuous mode, Jibo will constantly be updating and looking for a target.
 
-To see him look at a target, launch the simulator and click on `Add a Target` in the right-hand argument pane. A target will appear in Jibo's environment. You can manipulate the position of this target using the short cuts shown in the right-hand argument pane. You can also see the target's ID, x, y, and z position.
+To see Jibo look at a target, launch the simulator and click the **LPS** tab. Click **Add a Target** in the LPS pane. A target will appear in Jibo's environment. You can manipulate the position of this target using the keyboard shortcuts shown in the LPS pane. You can also see the target's ID, x, y, and z position.
 
 ### 20: Jibo Sees and Listens
 
-Just like a physical robot, Jibo in the simulator is able to both see and listen to his environment. In this example, Jibo tracks a target using `19-lps.bt` Subtree, until he hears `Hey Jibo`. We then use a `Parallel` behavior to simultaneously execute a `TextToSpeechJs` which randomly selects from a few greeting phrases, and two `Random` behaviors. `Random` behaviors randomly choose one of their children to execute.  
+Just like a physical robot, Jibo is able to both see and listen to his environment in the simulator. In this example, Jibo tracks a target using the `19-lps.bt` subtree until he hears `hey jibo`. We then use a `Parallel` behavior to simultaneously execute a `TextToSpeechJs`, which randomly selects from a few greeting phrases, and two `Random` behaviors. `Random` behaviors randomly choose one of their children to execute.  
 
-To see this in the simulator, launch the skill and add a target to the scene like we did in `19-lps`. You man manipulate the target just like in `19-lps` because we access it through a `Subtree`. To see the rest of the skill, click on the `Chat` tab and type `Hey Jibo` into the chat box. He will say one of the phrases we've given, and randomly execute one of the `PlayAudio` and `PlayAnimation` children of the `Random` behavior. Then since the whole sequence has a `WhileCondition`, the tree will restart. 
+To see this in the simulator, launch the skill and add a target to the scene like we did in example 19. You can manipulate the target because you are accessing  it via a subtree. To see the rest of the skill, click the **Chat** tab and type **hey jibo** into the chat box. He will say one of the phrases we've put in the `TextToSpeechJs` and randomly execute one of the `PlayAudio` and `PlayAnimation` children of the `Random` behavior. Then, since the whole sequence has a `WhileCondition`, the tree will restart.

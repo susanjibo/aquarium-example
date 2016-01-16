@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JiboQuarium</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
+
+    <script src="./deps/createjs/tweenjs-NEXT.min.js"></script>
+
+    <!-- PIXI dependencies -->
+    <script src="./deps/pixijs/pixi.min.js"></script>
+
+    <!-- PIXI Flash dependencies -->
+    <script src="./deps/pixi-flash/pixi-flash.js"></script>
+
+    <!-- The Flash exported animation -->
+    <script src="./assets/aquarium-pixijs/aquarium-pixijs.js"></script>
+
+</head>
+<body>
+<!-- <div id="eye"></div> -->
+<div id="ui"></div>
+<canvas id="canvas" style="border: none;" width="1280" height="720"></canvas>
+<script>
+    require('babel-core/register');
+    require('behaviorify/register');
+    require('./src/main');
+</script>
+</body>
+</html>

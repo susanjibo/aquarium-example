@@ -1,0 +1,623 @@
+{
+    "framerate": 30,
+    "version": "0.0.1",
+    "duration": 60,
+    "channels": [
+        {
+            "name": "Head Rotation",
+            "type": "value",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                },
+                {
+                    "value": -177.49999999999977,
+                    "time": 30
+                },
+                {
+                    "value": -5.500000000000017,
+                    "time": 59
+                }
+            ]
+        },
+        {
+            "name": "Torso Rotation",
+            "type": "value",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                },
+                {
+                    "value": 177.4999999999997,
+                    "time": 30
+                },
+                {
+                    "value": 2.999999999999989,
+                    "time": 59
+                }
+            ]
+        },
+        {
+            "name": "Pelvis Rotation",
+            "type": "value",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Rotation",
+            "type": "value",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Texture",
+            "type": "texture",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 38
+                }
+            ]
+        },
+        {
+            "name": "Eye Red Color",
+            "type": "color",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "Eye Green Color",
+            "type": "color",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "Eye Blue Color",
+            "type": "color",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 1 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 1 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 2 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 2 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 3 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 3 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 4 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 4 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 5 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 5 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 6 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 6 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 7 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 7 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 8 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 8 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 9 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Eye Vertex 9 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Rotation",
+            "type": "value",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Texture",
+            "type": "texture",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 44
+                }
+            ]
+        },
+        {
+            "name": "Overlay Red Color",
+            "type": "color",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "Overlay Green Color",
+            "type": "color",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "Overlay Blue Color",
+            "type": "color",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 1 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 1 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 2 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 2 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 3 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 3 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 4 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 4 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 5 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 5 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 6 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 6 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 7 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 7 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 8 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 8 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 9 X Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Overlay Vertex 9 Y Translation",
+            "type": "translation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Background Texture",
+            "type": "texture",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 44
+                }
+            ]
+        },
+        {
+            "name": "Background Red Color",
+            "type": "color",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Background Green Color",
+            "type": "color",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Background Blue Color",
+            "type": "color",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "LED Ring Red Color",
+            "type": "color",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "LED Ring Green Color",
+            "type": "color",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "LED Ring Blue Color",
+            "type": "color",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 1
+                }
+            ]
+        }
+    ]
+}

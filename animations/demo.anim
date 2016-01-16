@@ -1,0 +1,144 @@
+{
+    "header": {
+        "fileType": "DOFAnimation",
+        "version": "0.001",
+        "creationTime": 1431371264195
+    },
+    "content": {
+        "name": "/Users/jonathan/github/jibo-template/animations/demo.keys",
+        "channels": [
+            {
+                "dofName": "bottomSection_r",
+                "times": [
+                    0,
+                    1,
+                    1.9666666666666666
+                ],
+                "values": [
+                    0,
+                    -0.008726646259975246,
+                    0.07853981633974172
+                ],
+                "length": 1.9666666666666666
+            },
+            {
+                "dofName": "middleSection_r",
+                "times": [
+                    0,
+                    1,
+                    1.9666666666666666
+                ],
+                "values": [
+                    0,
+                    2.8099800957108627,
+                    -0.05235987755983177
+                ],
+                "length": 1.9666666666666666
+            },
+            {
+                "dofName": "topSection_r",
+                "times": [
+                    0,
+                    1,
+                    1.9666666666666666
+                ],
+                "values": [
+                    0,
+                    -2.6354471705114304,
+                    -0.04363323129985616
+                ],
+                "length": 1.9666666666666666
+            },
+            {
+                "dofName": "eyeTextureInfixBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    37.99997
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "eye_redChannelBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "eye_greenChannelBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "eye_blueChannelBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "overlayTextureInfixBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    44
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "overlay_redChannelBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "overlay_greenChannelBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "overlay_blueChannelBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "overlay_textureSubRootBn_t_2",
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ],
+                "length": 0
+            }
+        ]
+    }
+}

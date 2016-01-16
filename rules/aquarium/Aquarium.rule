@@ -1,0 +1,31 @@
+TopGrammar = ($* $CONTROL $*) {slotAction = CONTROL._slotAction};
+
+#Whoa, are... are you my person?
+#hey jibo required FALSE
+
+CONTROL =
+		$FEED {_slotAction=FEED._slotAction} |
+		$SCARE {_slotAction=SCARE._slotAction} |
+		$ADD {_slotAction=ADD._slotAction};
+
+FEED =
+	(
+		(feed $* fish | them) |
+		(give $* (the | some | their | them) food)
+	)
+{_slotAction='feed'}
+;
+
+SCARE =
+	(
+		(scare $* fish | them)
+	)
+{_slotAction='scare'}
+;
+
+ADD =
+	(
+		(add $* (fish))
+    )
+{_slotAction='add'}
+;

@@ -1,0 +1,76 @@
+{
+  "DebugBehavior": {
+    "type": "leaf",
+    "args": ["string"],
+    "meta": [
+      {
+        "field": "text",
+        "description": "text.",
+        "defaultValue": "null"
+      }
+    ]
+  },
+  "BehaviorBehavior": {
+    "type": "leaf",
+    "args": ["Function", "Function", "Function"],
+    "meta": [
+      {
+        "field": "onStart",
+        "description": "called when behavior starts.",
+        "defaultValue": "() => {\n}"
+      },
+      {
+        "field": "onStop",
+        "description": "called when behavior stops.",
+        "defaultValue": "(result) =>  {\n}"
+      },
+      {
+        "field": "onUpdate",
+        "description": "called each time the behavior is updated.",
+        "defaultValue": "(elapsedTime) =>  {\n  return {status:\"IN_PROGRESS\"}\n}"
+      }
+    ]
+  },
+  "Mim": {
+    "type": "leaf",
+    "args": ["function", "function", "function"],
+    "meta": [
+      {
+        "field": "getConfig",
+        "description": "MIM Config",
+        "defaultValue": "() =>  {\n\treturn {}\n}"
+      },
+      {
+        "field": "onStatus",
+        "description": "MIM Status",
+        "defaultValue": "(status) =>  {\n}"
+      },
+      {
+        "field": "onResults",
+        "description": "MIM Results",
+        "defaultValue": "(results) =>  {\n}"
+      }
+    ]
+  },
+  "MimGui": {
+    "type": "leaf",
+    "args": ["function", "function", "function"],
+    "meta": [
+      {
+        "field": "getConfig",
+        "description": "MIM Gui Config",
+        "defaultValue": "() =>  {\n\treturn {\n\t\tmimConfig: notepad.mimConfig,\n\t\tmimState: notepad.mimState\n\t}\n}"
+      },
+      {
+        "field": "onStatus",
+        "description": "MIM Gui Status",
+        "defaultValue": "(status) =>  {\n}"
+      },
+      {
+        "field": "onResults",
+        "description": "MIM Gui Results",
+        "defaultValue": "(results) =>  {\n}"
+      }
+    ]
+  }
+}

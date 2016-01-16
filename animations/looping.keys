@@ -1,0 +1,45 @@
+{
+    "framerate": 60,
+    "version": "0.0.1",
+    "duration": 60,
+    "channels": [
+        {
+            "name": "Head Rotation",
+            "type": "rotation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 45
+                }
+            ]
+        },
+        {
+            "name": "Torso Rotation",
+            "type": "rotation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "name": "Pelvis Rotation",
+            "type": "rotation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                },
+                {
+                    "value": 180,
+                    "time": 30
+                },
+                {
+                    "value": 360,
+                    "time": 59
+                }
+            ]
+        }
+    ]
+}

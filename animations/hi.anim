@@ -1,0 +1,1228 @@
+{
+    "header": {
+        "fileType": "DOFAnimation",
+        "version": "0.001",
+        "creationTime": 1431540043039
+    },
+    "content": {
+        "name": "/Users/jonathan/github/jibo-template/animations/hi.keys",
+        "channels": [
+            {
+                "dofName": "topSection_r",
+                "length": 2,
+                "times": [
+                    0,
+                    1,
+                    1.9666666666666666
+                ],
+                "values": [
+                    0,
+                    -1.134464013796314,
+                    -0.09599310885968841
+                ]
+            },
+            {
+                "dofName": "middleSection_r",
+                "length": 2,
+                "times": [
+                    0,
+                    1,
+                    1.9666666666666666
+                ],
+                "values": [
+                    0,
+                    1.5271630954950384,
+                    0.05235987755982969
+                ]
+            },
+            {
+                "dofName": "bottomSection_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "eyeSubRootBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "eyeSubRootBn_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "eyeSubRootBn_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "eyeTextureInfixBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    38
+                ]
+            },
+            {
+                "dofName": "eye_redChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "eye_greenChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "eye_blueChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "vertexJoint1_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint1_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint2_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint2_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint3_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint3_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint4_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint4_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint5_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint5_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint6_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint6_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint7_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint7_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint8_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint8_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint9_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint9_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_textureSubRootBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_textureSubRootBn_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_textureSubRootBn_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlayTextureInfixBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    44
+                ]
+            },
+            {
+                "dofName": "overlay_redChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "overlay_greenChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "overlay_blueChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint1_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint1_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint2_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint2_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint3_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint3_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint4_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint4_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint5_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint5_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint6_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint6_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint7_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint7_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint8_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint8_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint9_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint9_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "screenBGTextureInfixBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    44
+                ]
+            },
+            {
+                "dofName": "screenBG_redChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "screenBG_greenChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "screenBG_blueChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "lightring_redChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "lightring_greenChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "lightring_blueChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "topSection_r",
+                "length": 2,
+                "times": [
+                    0,
+                    1,
+                    1.9666666666666666
+                ],
+                "values": [
+                    0,
+                    -3.097959422289931,
+                    -0.09599310885968841
+                ]
+            },
+            {
+                "dofName": "middleSection_r",
+                "length": 2,
+                "times": [
+                    0,
+                    1,
+                    1.9666666666666666
+                ],
+                "values": [
+                    0,
+                    3.0979594222899296,
+                    0.05235987755982969
+                ]
+            },
+            {
+                "dofName": "bottomSection_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "eyeSubRootBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "eyeSubRootBn_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "eyeSubRootBn_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "eyeTextureInfixBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    38
+                ]
+            },
+            {
+                "dofName": "eye_redChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "eye_greenChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "eye_blueChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "vertexJoint1_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint1_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint2_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint2_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint3_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint3_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint4_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint4_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint5_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint5_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint6_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint6_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint7_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint7_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint8_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint8_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint9_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "vertexJoint9_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_textureSubRootBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_textureSubRootBn_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_textureSubRootBn_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlayTextureInfixBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    44
+                ]
+            },
+            {
+                "dofName": "overlay_redChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "overlay_greenChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "overlay_blueChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint1_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint1_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint2_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint2_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint3_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint3_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint4_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint4_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint5_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint5_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint6_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint6_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint7_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint7_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint8_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint8_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint9_t",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "overlay_vertexJoint9_t_2",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "screenBGTextureInfixBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    44
+                ]
+            },
+            {
+                "dofName": "screenBG_redChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "screenBG_greenChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "screenBG_blueChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ]
+            },
+            {
+                "dofName": "lightring_redChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "lightring_greenChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            },
+            {
+                "dofName": "lightring_blueChannelBn_r",
+                "length": 2,
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ]
+            }
+        ]
+    }
+}

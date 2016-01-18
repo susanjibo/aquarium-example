@@ -120,7 +120,7 @@ class AquariumManager {
             AquariumManager.food.forEach(food => {
                 if (AquariumManager.checkFishFoodCollision(fish, food)) {
                     food.physics.position.y = 800;
-                    fish.physics.velocity.x = -200;
+                    fish.physics.velocity.x = (-300 * fish.scale.x);
                 }
             });
         });

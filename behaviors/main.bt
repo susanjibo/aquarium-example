@@ -24,25 +24,8 @@
                 "        notepad.initialized = true;",
                 "        console.log(`blackboard.AquariumManager: ${blackboard.AquariumManager != undefined}`);",
                 "",
-                "        if (blackboard.AquariumManager) {",
-                "            blackboard.AquariumManager.addForeground();",
-                "            ",
-                "            blackboard.AquariumManager.addFish(\"fish_1\", \"Fish_OrangeMC\");",
-                "            blackboard.AquariumManager.addFish(\"fish_2\", \"Fish_BlueMC\");",
-                "            blackboard.AquariumManager.addFish(\"fish_3\", \"Fish_PurpleMC\");",
-                "            ",
-                "            blackboard.fish_1 = blackboard.AquariumManager.getFishWithId(\"fish_1\");",
-                "            blackboard.fish_2 = blackboard.AquariumManager.getFishWithId(\"fish_2\");",
-                "            blackboard.fish_3 = blackboard.AquariumManager.getFishWithId(\"fish_3\");",
-                "            ",
-                "            blackboard.fish_1.setPosition(650, 200);",
-                "            blackboard.fish_2.setPosition(350, 400);",
-                "            blackboard.fish_3.setPosition(100, 600);",
-                "            ",
-                "            blackboard.fish_3.scale.x = -1;",
-                "            ",
-                "            blackboard.AquariumManager.addFood(640,-10);",
-                "        }",
+                "        blackboard.AquariumManager.addForeground();",
+                "        blackboard.AquariumManager.addFood(640,-10);",
                 "    }",
                 "}"
             ]
@@ -83,6 +66,8 @@
         "args": [
             [
                 "() => {",
+                "  self.fish = blackboard.AquariumManager.addFish(\"fish_1\", \"Fish_OrangeMC\");",
+                "  self.fish.setPosition(650, 200);",
                 "}"
             ],
             [
@@ -100,9 +85,8 @@
                 "    if ((now - self.startTime) > 2000) {",
                 "        self.startTime = now;",
                 "",
-                "        if (blackboard.fish_1) {",
-                "            blackboard.fish_1.physics.velocity.x = -200;",
-                "            //blackboard.fish_1.mc.gotoAndPlay(\"fast\");",
+                "        if (self.fish) {",
+                "            self.fish.physics.velocity.x = -200;",
                 "        }",
                 "    }",
                 "    return {status:\"IN_PROGRESS\"}",
@@ -119,6 +103,8 @@
         "args": [
             [
                 "() => {",
+                "  self.fish = blackboard.AquariumManager.addFish(\"fish_2\", \"Fish_BlueMC\");",
+                "  self.fish.setPosition(350, 400);",
                 "}"
             ],
             [
@@ -136,9 +122,9 @@
                 "    if ((now - self.startTime) > 2200) {",
                 "        self.startTime = now;",
                 "",
-                "        if (blackboard.fish_2) {",
-                "            blackboard.fish_2.physics.velocity.x = -180;",
-                "            blackboard.fish_2.mc.gotoAndPlay(\"fast\");",
+                "        if (self.fish) {",
+                "            self.fish.physics.velocity.x = -180;",
+                "            self.fish.mc.gotoAndPlay(\"fast\");",
                 "        }",
                 "    }",
                 "    return {status:\"IN_PROGRESS\"}",
@@ -155,6 +141,9 @@
         "args": [
             [
                 "() => {",
+                "  self.fish = blackboard.AquariumManager.addFish(\"fish_3\", \"Fish_PurpleMC\");",
+                "  self.fish.setPosition(100, 600);",
+                "  self.fish.scale.x = -1;",
                 "}"
             ],
             [
@@ -171,12 +160,7 @@
                 "",
                 "    if ((now - self.startTime) > 2800) {",
                 "        self.startTime = now;",
-                "",
-                "        if (blackboard.fish_3) {",
-                "          //blackboard.fish_3.mc.scale.x = .5;",
-                "          blackboard.fish_3.physics.velocity.x = 80;",
-                "          //blackboard.fish_3.mc.gotoAndPlay(\"slow\");",
-                "        }",
+                "        self.fish.physics.velocity.x = 80;",
                 "    }",
                 "    return {status:\"IN_PROGRESS\"}",
                 "}"

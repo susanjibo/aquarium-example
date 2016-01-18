@@ -23,7 +23,6 @@ module.exports = createBehavior({
         switch (event.type) {
             case 'itemSelected':
                 this.status = Status.SUCCEEDED;
-                //console.log(event.index, event.data);
                 this.asrResults = new AsrResults({
                     Input: event.data.label,
                     NLParse: { input:event.data.label, slotAction: event.data.label},
@@ -75,9 +74,6 @@ module.exports = createBehavior({
         }
     },
     update() {
-        //if (this.status != Status.IN_PROGRESS) {
-        //    this.stop();
-        //}
         return this.status
     }
 });

@@ -1,4 +1,4 @@
-/*! Pixi Flash 0.2.6 */
+/*! Pixi Flash 0.2.10 */
 /**
  * @module Pixi Flash
  * @namespace pixiflash
@@ -398,34 +398,56 @@
 			},
 			set: function (mask)
 			{
+				var _maskShape = this._maskShape;
+				//if the old mask is a shape and is not the new mask, remove it
+				if (_maskShape && mask != _maskShape)
+				{
+					if(--_maskShape._maskUses < 1)
+					{
+						if(_maskShape.parent)
+							_maskShape.parent.removeChild(_maskShape);
+					}
+					_maskShape.off('graphicsChanged', this.onShapeChanged);
+				}
 				if (this._mask)
 				{
-					// Remove the old mask if we're a shape
-					if (this._mask.__parentShape)
-					{
-						var parentShape = this._mask.__parentShape;
-						if (parentShape.parent)
-							parentShape.parent.removeChild(parentShape);
-						parentShape.off('graphicsChanged', this.onShapeChanged);
-						delete this._mask.__parentShape;
-					}
+					//is this safe if a mask is reused multiple places?
 					this._mask.renderable = true;
 				}
 				// If the mask is a shape apply the graphics as the shape
 				if (mask && mask instanceof pixiflash.Shape)
 				{
-					this._mask = mask.graphics;
-					this._mask.__parentShape = mask;
 					if(!this.boundMaskChanged)
 					{
 						this.boundMaskChanged = true;
 						this.onShapeChanged = this.onShapeChanged.bind(this);
+						this.onAddedWithMask = this.onAddedWithMask.bind(this);
 					}
-					mask.once('graphicsChanged', this.onShapeChanged);
+					if(_maskShape != mask)
+					{
+						_maskShape = this._maskShape = mask;
+						++_maskShape._maskUses;
+						_maskShape.on('graphicsChanged', this.onShapeChanged);
+					}
+					if(mask.graphics.graphicsData.length)
+					{
+						this._mask = mask.graphics;
+					}
+					else
+						this._mask = null;
 				}
 				else
 				{
 					this._mask = mask;
+				}
+				if(!mask)
+				{
+					
+					if(this._hasAddedEvent)
+					{
+						this.off("added", this.onAddedWithMask);
+						this._hasAddedEvent = false;
+					}
 				}
 				if (this._mask)
 				{
@@ -433,22 +455,31 @@
 					// on the same container as this display object
 					if (!this.parent)
 					{
-						this.once("added", function()
+						//only add event if it isn't already included
+						if(!this._hasAddedEvent)
 						{
-							if(!this._mask) return;
-							this.parent.addChild(this._mask.__parentShape || this._mask);
-						});
+							this._hasAddedEvent = true;
+							this.once("added", this.onAddedWithMask);
+						}
 					}
 					else
 					{
-						this.parent.addChild(this._mask.__parentShape || this._mask);
+						if(mask.parent != this.parent)
+							this.parent.addChild(mask);
 					}
 					this._mask.renderable = false;
 				}
 			}
 		}
 	});
-
+	
+	p.onAddedWithMask = function()
+	{
+		if(!this._mask) return;
+		var mask = this._maskShape || this._mask;
+		if(mask.parent != this.parent)
+			this.parent.addChild(mask);
+	};
 	
 	/**
 	 * Dummy function for CJS export compatibility
@@ -635,12 +666,12 @@
 	//constructor for backwards/Flash exporting compatibility
 	p.initialize = Container;
 
+	p.__Container_addChild = p.addChild;
 	p.addChild = function(child)
 	{
-		var addChild = s.addChild.bind(this);
 		for(var i = 0; i < arguments.length; i++)
 		{
-			addChild(arguments[i]);
+			this.__Container_addChild(arguments[i]);
 		}
 	};
 
@@ -779,6 +810,8 @@
 	 */
 	var MovieClip = function(mode, startPosition, loop, labels)
 	{
+		if(!MovieClip.inited) MovieClip.init(); // static init
+		
 		Container.call(this);
 		DisplayObject.call(this);
 		
@@ -946,6 +979,16 @@
 			this.on("added", this._onAdded);
 			this.on("removed", this._onRemoved);
 		}.bind(this));
+	};
+	
+	MovieClip.inited = false;
+	
+	// static methods:
+	MovieClip.init = function() {
+		if (MovieClip.inited) { return; }
+		// plugins introduce some overhead to Tween, so we only install this if an MC is instantiated.
+		MovieClipPlugin.install();
+		MovieClip.inited = true;
 	};
 	
 	/**
@@ -1535,7 +1578,7 @@
 			if (!id)
 			{
 				id = file;
-				var index = id.indexOf('/');
+				var index = id.lastIndexOf('/');
 				if (index > -1)
 					id = file.substr(index + 1);
 				id = id.substr(0, id.lastIndexOf('.'));
@@ -1700,7 +1743,10 @@
 	 * @param {Number} y The y coordinate the drawing point should draw to.
 	 * @return {pixiflash.Graphics} The Graphics instance the method is called on (useful for chaining calls.)
 	 **/
-	p.lt = p.lineTo;
+	p.lt = function(x, y)
+	{
+		return this.op().lineTo(x, y);
+	};
 
 	/**
 	 * Draws a bezier curve from the current drawing point to (x, y) using the control points (cp1x, cp1y) and (cp2x,
@@ -1716,7 +1762,10 @@
 	 * @param {Number} y
 	 * @return {pixiflash.Graphics} The Graphics instance the method is called on (useful for chaining calls.)
 	 **/
-	p.bt = p.bezierCurveTo;
+	p.bt = function(cp1x, cp1y, cp2x, cp2y, x, y)
+	{
+		return this.op().bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y);
+	};
 
 	/**
 	 * Shortcut to drawRect.
@@ -1802,7 +1851,10 @@
 	 * @protected
 	 * @chainable
 	 **/
-	p.a = p.arc;
+	p.a = function(x, y, radius, startAngle, endAngle, anticlockwise)
+	{
+		return this.op().arc(x, y, radius, startAngle, endAngle, anticlockwise);
+	};
 
 	/**
 	 * Shortcut to arcTo.
@@ -1816,7 +1868,10 @@
 	 * @chainable
 	 * @protected
 	 **/
-	p.at = p.arcTo;
+	p.at = function(x1, y1, x2, y2, radius)
+	{
+		return this.op().arcTo(x1, y1, x2, y2, radius);
+	};
 
 	/**
 	 * Override the draw ellipse method
@@ -1845,13 +1900,7 @@
 	 **/
 	p.qt = function(cpx, cpy, x, y)
 	{
-		// Ensure that the draw shape is not closed
-		var currentPath = this.currentPath;
-		if (currentPath && currentPath.shape)
-		{
-			currentPath.shape.closed = false;
-		}
-		return this.quadraticCurveTo(cpx, cpy, x, y);
+		return this.op().quadraticCurveTo(cpx, cpy, x, y);
 	};
 
 	/**
@@ -1871,6 +1920,23 @@
 	};
 
 	/**
+	 * Open path method for drawing, ensure that the draw shape is not closed
+	 * @method op
+	 * @private
+	 * @return {pixiflash.Graphics} The Graphics instance the method is called on (useful for chaining calls.)
+	 */
+	p.op = function()
+	{
+		// Ensure that the draw shape is not closed
+		var currentPath = this.currentPath;
+		if (currentPath && currentPath.shape)
+		{
+			currentPath.shape.closed = false;
+		}
+		return this;
+	};
+
+	/**
 	 * Begins a fill with the specified color. This ends the current sub-path. A tiny API method "f" also exists.
 	 * @method f
 	 * @param {String} color A CSS compatible color value (ex. "red", "#FF0000", or "rgba(255,0,0,0.5)"). Setting to
@@ -1884,6 +1950,10 @@
 			var rgb = utils.colorToHex(color);
 			var a = alphaFromColor(color);
 			this.beginFill(rgb, a);
+		}
+		else
+		{
+			this.beginFill(0, 0);
 		}
 		return this;
 	};
@@ -2160,6 +2230,10 @@
 
 		// Shapes have a graphic by default
 		this.graphics = new Graphics();
+		
+		//keep track of the number of things using this as a mask so we can avoid adding/removing
+		//it more than needed
+		this._maskUses = 0;
 	};
 
 	// Extend PIXI.Sprite
@@ -2182,9 +2256,9 @@
 	 */
 	Object.defineProperty(p, "graphics",
 	{
-		get: function() 
+		get: function()
 		{
-			return this._graphics; 
+			return this._graphics;
 		},
 		set: function(graphics)
 		{

@@ -39,11 +39,11 @@ renderer.plugins.interaction.autoPreventDefault = false;
 var stage = new PIXI.Container();
 
 // Load the spritesheet data
-//$.getJSON("pixijs-spritesheets/snap_atlas_.json", function(data)
-//{
-//    // Load the atlas for the character
-//    pixiflash.SpriteSheet.fromData(data, function()
-//    {
+$.getJSON("pixijs-spritesheets/aquarium_pixijs_atlas_.json", function(data)
+{
+    // Load the atlas for the character
+    pixiflash.SpriteSheet.fromData(data, function()
+    {
         // Create the character
         var aquarium = new pixiflash_lib.aquariumpixijs();
         aquarium.setTransform(0, 0);
@@ -51,8 +51,8 @@ var stage = new PIXI.Container();
 
         // Add to stage
         stage.addChild(aquarium);
-//    });
-//});
+    });
+});
 
 update();
 function update()

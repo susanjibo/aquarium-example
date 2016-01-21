@@ -1,5 +1,5 @@
 /**
- * Created by andrew on 6/8/15.
+ * Created by Andrew Rapo on 6/8/15.
  */
 
 import PixijsMcEventProxy from './pixijs-mc-event-proxy.js';

@@ -1,5 +1,5 @@
 /**
- * Created by andrew on 11/12/15.
+ * Created by Andrew Rapo on 11/12/15.
  */
 
 import EventManager from './event-manager';

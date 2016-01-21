@@ -1,5 +1,5 @@
 ﻿/**
- * Created by andrew on 5/4/15.
+ * Created by Andrew Rapo on 5/4/15.
  * Based on SimplePhysicsModel by Jackson Dunstan
  */
 

@@ -20,9 +20,7 @@
       "index": "1",
       "condition": "",
       "prompt": "How can I help you with the aquarium?",
-      "media": "TTS",
-      "extra": "",
-      "prompt_id": "Aquarium_Q_1"
+      "media": "TTS"
     },
     {
       "mim_id": "Aquarium",
@@ -31,9 +29,7 @@
       "index": "1",
       "condition": "",
       "prompt": "So, How can I help you with the aquarium?",
-      "media": "TTS",
-      "extra": "",
-      "prompt_id": "Aquarium_NI_1"
+      "media": "TTS"
     },
     {
       "mim_id": "Aquarium",
@@ -42,9 +38,7 @@
       "index": "1",
       "condition": "",
       "prompt": "For example, I can feed the fish.",
-      "media": "TTS",
-      "extra": "",
-      "prompt_id": "Aquarium_NM_1"
+      "media": "TTS"
     }
   ]
 }

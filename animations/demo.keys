@@ -1,0 +1,61 @@
+{
+    "framerate": 30,
+    "version": "0.0.1",
+    "duration": 60,
+    "channels": [
+        {
+            "name": "Head Rotation",
+            "type": "rotation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                },
+                {
+                    "value": -150.99999999999957,
+                    "time": 30
+                },
+                {
+                    "value": -2.499999999999881,
+                    "time": 59
+                }
+            ]
+        },
+        {
+            "name": "Torso Rotation",
+            "type": "rotation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                },
+                {
+                    "value": 160.99999999999955,
+                    "time": 30
+                },
+                {
+                    "value": -3.000000000000108,
+                    "time": 59
+                }
+            ]
+        },
+        {
+            "name": "Pelvis Rotation",
+            "type": "rotation",
+            "keyframes": [
+                {
+                    "time": 0,
+                    "value": 0
+                },
+                {
+                    "value": -0.5000000000002062,
+                    "time": 30
+                },
+                {
+                    "value": 4.4999999999998215,
+                    "time": 59
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,512 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "args": [],
+        "children": [
+            64,
+            3,
+            18,
+            61,
+            66
+        ]
+    },
+    "3": {
+        "id": 3,
+        "class": "ExecuteScript",
+        "name": "Config Mim",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            [
+                "() => {",
+                "  console.log(`\\n\\n**********`);",
+                "  console.log(`MimBt: This is the BT for the MIM behavior: notepad.config:`);",
+                "  ",
+                "  notepad.mimId = notepad.config.mimId;",
+                "  notepad.mimsPath = notepad.config.mimsPath;",
+                "  ",
+                "  let path = require('path');",
+                "  let MimConfig = require('../mim/mim-config');",
+                "  ",
+                "\tlet mimConfigFilename = path.resolve(notepad.mimsPath, notepad.mimId + '.json');",
+                "\tlet mimConfigData = require(mimConfigFilename);",
+                "\t",
+                "  notepad.mimConfig = new MimConfig();",
+                "\tnotepad.mimConfig.initWithJSON(mimConfigData);",
+                "  ",
+                "  notepad.maxTries = 3; // default",
+                "  if (notepad.mimConfig.maxTries) {",
+                "    notepad.maxTries = notepad.mimConfig.maxTries;",
+                "  }",
+                "\t  ",
+                "  if (notepad.config.rulesPath) {",
+                "    notepad.rulesPath = notepad.config.rulesPath",
+                "  } else {",
+                "    console.log(`MimBt: ERROR: Mim BT: Invalid rulesPath!`);",
+                "  }",
+                "  ",
+                "  notepad.rulesSuffix = 'rule';",
+                "  if (notepad.config.rulesSuffix) {",
+                "    notepad.rulesSuffix = notepad.config.rulesSuffix",
+                "  }",
+                "  ",
+                "  //MIM MANAGER",
+                "  let MimManager = require('../mim/mim-manager');",
+                "  console.log(`MimBt: MimManager: ${MimManager}`);",
+                "  if (MimManager) {",
+                "    console.log(`MimBt: blackboard.MimManager.guiManager: ${MimManager.guiManager}`);",
+                "  }",
+                "",
+                "  notepad.promptData = notepad.config.promptData;",
+                "  if (!notepad.promptData) {",
+                "    notepad.promptData = {};",
+                "  }",
+                "  ",
+                "  console.log(`MimBt: MimId: ${notepad.mimId}`);",
+                "  console.log(`MimBt: rulesPath: ${notepad.rulesPath}`);",
+                "}"
+            ]
+        ]
+    },
+    "18": {
+        "id": 18,
+        "class": "ExecuteScript",
+        "name": "Load Rule File",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            [
+                "() => {",
+                "  let fs = require('fs');",
+                "  let path = require ('path');",
+                "  let ruleFileName = path.resolve(notepad.rulesPath, notepad.mimConfig.ruleName + '.' + notepad.rulesSuffix);",
+                "  notepad.rule = null;",
+                "  ",
+                "  try {",
+                "    notepad.rule = fs.readFileSync(ruleFileName, \"utf8\");",
+                "  } catch (err) {",
+                "    console.log(`MimBt: Error: Cannot load Rules File!`);",
+                "    console.log(`\\truleFileName: ${ruleFileName}`);",
+                "    console.log(err);",
+                "  }",
+                "  ",
+                "  // fs.readFile(ruleFileName, 'utf8', (err, data) => {",
+                "  //               if (err) {",
+                "  //                   console.log(`MimBt: Error: Cannot load Rules File!`);",
+                "  //                   console.log(`\\truleFileName: ${ruleFileName}`);",
+                "  //                   console.log(err);",
+                "  //               } else {",
+                "  //                   console.log(`MimBt: Rule data loaded: ${ruleFileName}`);",
+                "  //                   notepad.rule = data;",
+                "  //               }",
+                "  //           });",
+                "}"
+            ]
+        ]
+    },
+    "60": {
+        "id": 60,
+        "class": "ListenJs",
+        "name": "Speech I/O",
+        "asset-pack": "core",
+        "parent": 68,
+        "args": [
+            [
+                "() => {",
+                "\t",
+                "\tnotepad.mimState.incrementTries();",
+                "\t",
+                "\tlet options = {",
+                "\t\theyJibo: false,",
+                "\t\tdetectEnd: true,",
+                "\t\treturnSpeakers: true,",
+                "\t\tincremental: true,",
+                "\t\ttimeout: 6000,",
+                "\t\tbargein: false,",
+                "\t\tspeakerName: ''",
+                "\t}",
+                "\treturn options;",
+                "}"
+            ],
+            [
+                "(callback) => {",
+                "\tcallback(notepad.rule);",
+                "}"
+            ],
+            [
+                "(listener) => {",
+                "\tlistener.on('cloud', (asrResultsData, speakerIdsData) => {",
+                "\t\tconsole.log(`MimBt: ListenJS Listen: Results:`, asrResultsData, speakerIdsData);",
+                "\t\t",
+                "\t\tlet AsrResults = require('../mim/asr-result');",
+                "\t\tlet SpeakerIds = require('../mim/speaker-ids');",
+                "\t\tnotepad.asrResults = new AsrResults(asrResultsData);",
+                "\t\tnotepad.speakerIds = new SpeakerIds(speakerIdsData);",
+                "\t",
+                "\t\tlet MimManager = require('../mim/mim-manager');",
+                "\t\tlet GuiManager = MimManager.getGuiManager();",
+                "\t\tif (GuiManager) {",
+                "\t\t \tGuiManager.listenStop(notepad.mimState, notepad.asrResults, notepad.speakerIds);",
+                "\t\t}",
+                "\t});",
+                "\t",
+                "\tlistener.on('incremental', (asrResultsData, speakerIdsData) => {",
+                "\t\tconsole.log(`MimBt: ListenJS Incremental Results:`, asrResultsData, speakerIdsData);",
+                "\t});",
+                "}"
+            ]
+        ],
+        "skipped": false
+    },
+    "61": {
+        "id": 61,
+        "class": "Sequence",
+        "name": "Try and Try",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [],
+        "decorators": [
+            62
+        ],
+        "children": [
+            75,
+            76,
+            77,
+            80,
+            87
+        ]
+    },
+    "62": {
+        "id": 62,
+        "class": "WhileCondition",
+        "name": "",
+        "asset-pack": "core",
+        "args": [
+            [
+                "() => {",
+                "}"
+            ],
+            [
+                "() => {",
+                "   return !notepad.mimState.done;",
+                "}"
+            ]
+        ]
+    },
+    "64": {
+        "id": 64,
+        "class": "ExecuteScript",
+        "name": "Init",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            [
+                "() => {",
+                "  let MimState = require('../mim/mim-state');",
+                "  notepad.mimState = new MimState();",
+                "  notepad.mimState.lastResultState = 'entry';",
+                "}"
+            ]
+        ]
+    },
+    "65": {
+        "id": 65,
+        "class": "ExecuteScript",
+        "name": "Analyze Results",
+        "asset-pack": "core",
+        "parent": 91,
+        "args": [
+            [
+                "() => {",
+                "  notepad.mimState.lastResultState = notepad.asrResults.state;",
+                "  ",
+                "  switch (notepad.mimState.lastResultState) {",
+                "      case 'match':",
+                "        notepad.mimState.success = true;",
+                "        break;",
+                "      case 'noMatch':",
+                "        notepad.mimState.incrementNoMatchCount();",
+                "        break;",
+                "      case 'noInput':",
+                "        notepad.mimState.incrementNoInputCount();",
+                "        break;",
+                "  }",
+                "  ",
+                "  if (notepad.mimState.tries >= notepad.maxTries) {",
+                "    notepad.mimState.failure = true;",
+                "  }",
+                "}"
+            ]
+        ]
+    },
+    "66": {
+        "id": 66,
+        "class": "ExecuteScript",
+        "name": "Report Results",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            [
+                "() => {",
+                "  console.log(`MimBt: Evaluate Results`);",
+                "  if (notepad.mimState.success) {",
+                "    console.log(`SUCCESS`);",
+                "  } else if (notepad.mimState.failure) {",
+                "    console.log(`FAILURE`);",
+                "  }",
+                "  ",
+                "  if (notepad.onResults) {",
+                "    notepad.onResults({",
+                "      state: notepad.mimState,",
+                "      asrResults: notepad.asrResults,",
+                "      speakerIds: notepad.speakerIds",
+                "    });",
+                "  }",
+                "}"
+            ]
+        ]
+    },
+    "68": {
+        "id": 68,
+        "class": "Parallel",
+        "name": "Receive Multimodal Input",
+        "asset-pack": "core",
+        "parent": 91,
+        "args": [
+            true
+        ],
+        "children": [
+            60,
+            69,
+            71,
+            93
+        ],
+        "decorators": []
+    },
+    "69": {
+        "id": 69,
+        "class": "MimGui",
+        "name": "GUI I/O",
+        "asset-pack": "project",
+        "parent": 68,
+        "args": [
+            [
+                "() =>  {",
+                "\treturn {",
+                "\t\tmimConfig: notepad.mimConfig,",
+                "\t\tmimState: notepad.mimState",
+                "\t}",
+                "}"
+            ],
+            [
+                "(status) =>  {",
+                "}"
+            ],
+            [
+                "(results) =>  {",
+                "  console.log(`MimBt: MimGui Results:`, results);",
+                "  notepad.asrResults = results.asrResults;",
+                "  notepad.speakerIds = results.speakerIds;",
+                "}"
+            ]
+        ],
+        "skipped": false
+    },
+    "71": {
+        "id": 71,
+        "class": "Null",
+        "name": "Head Touch Input (unimplemented)",
+        "asset-pack": "core",
+        "parent": 68,
+        "args": []
+    },
+    "75": {
+        "id": 75,
+        "class": "ExecuteScript",
+        "name": "Determine Entry Prompt SubCategory",
+        "asset-pack": "core",
+        "parent": 61,
+        "args": [
+            [
+                "() => {",
+                "  ",
+                "  notepad.entryPromptSubCategory = null;",
+                "  ",
+                "  switch (notepad.mimConfig.mimType) {",
+                "    case 'question':",
+                "      notepad.entryPromptSubCategory = 'Q';",
+                "      break;",
+                "    case 'announce':",
+                "      notepad.entryPromptSubCategory = 'AN';",
+                "      break;",
+                "    case 'optional-response':",
+                "      notepad.entryPromptSubCategory = 'AN';",
+                "      break;",
+                "    case 'wait':",
+                "      notepad.entryPromptSubCategory = 'WAIT';",
+                "      break;",
+                "    default:",
+                "      console.error(`MimBt: ${notepad.mimId}, incorrect mimType of ${notepad.mimConfig.mimType}`);",
+                "      break;",
+                "  }",
+                "}"
+            ]
+        ]
+    },
+    "76": {
+        "id": 76,
+        "class": "ExecuteScript",
+        "name": "Choose Prompt",
+        "asset-pack": "core",
+        "parent": 61,
+        "args": [
+            [
+                "() => {",
+                "  notepad.currentPrompt = null;",
+                "  ",
+                "  switch (notepad.mimState.lastResultState) {",
+                "      case 'entry':",
+                "        notepad.currentPrompt = notepad.mimConfig.getPromptWithCategoryAndSubCategory('Entry-Core', notepad.entryPromptSubCategory);",
+                "        break;",
+                "      case 'noMatch':",
+                "        notepad.currentPrompt = notepad.mimConfig.getErrorNoMatchPrompt();",
+                "        break;",
+                "      case 'noInput':",
+                "        notepad.currentPrompt = notepad.mimConfig.getErrorNoInputPrompt();",
+                "        break;",
+                "      default:",
+                "        console.log(`MimBt: Invalid lastResultState: ${notepad.mimState.lastResultState}`);",
+                "        break;",
+                "  }  ",
+                "}"
+            ]
+        ]
+    },
+    "77": {
+        "id": 77,
+        "class": "ExecuteScript",
+        "name": "Replace dynamic prompt tokens",
+        "asset-pack": "core",
+        "parent": 61,
+        "args": [
+            [
+                "() => {",
+                "  let vm = require('vm');",
+                "  let util = require('util');",
+                "  ",
+                "  //On Tuesday, it will be: ${conditions} ${inLocale} With a high in the: ${highTemp} And a low in the: ${lowTemp}",
+                "  notepad.mimState.promptText = '';",
+                "",
+                "  let context = new vm.createContext(notepad.promptData);",
+                "  let script_text = '`' + notepad.currentPrompt.getPromptText() + '`';",
+                "",
+                "  var script = new vm.Script(script_text);",
+                "",
+                "  notepad.mimState.promptText = script.runInContext(context);",
+                "}"
+            ]
+        ]
+    },
+    "80": {
+        "id": 80,
+        "class": "TextToSpeechJs",
+        "name": "Say prompt",
+        "asset-pack": "core",
+        "parent": 61,
+        "args": [
+            [
+                "(callback) => {",
+                "\tcallback(notepad.mimState.promptText);",
+                "}"
+            ],
+            [
+                "(word) => {",
+                "}"
+            ]
+        ],
+        "skipped": false
+    },
+    "87": {
+        "id": 87,
+        "class": "Switch",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 61,
+        "args": [],
+        "children": [
+            91,
+            89
+        ]
+    },
+    "89": {
+        "id": 89,
+        "class": "ExecuteScript",
+        "name": "Results for Announce",
+        "asset-pack": "core",
+        "parent": 87,
+        "args": [
+            [
+                "() => {",
+                "  console.log(`MimBt: Announce: Ignoring results:`);",
+                "  notepad.asrResults = null;",
+                "  notepad.speakerIds = null;",
+                "  notepad.mimState.success = true;",
+                "}"
+            ]
+        ],
+        "decorators": [
+            90
+        ]
+    },
+    "90": {
+        "id": 90,
+        "class": "Case",
+        "name": "",
+        "asset-pack": "core",
+        "args": [
+            [
+                "() => {",
+                "  return notepad.mimConfig.mimType === 'announce';",
+                "}"
+            ]
+        ]
+    },
+    "91": {
+        "id": 91,
+        "class": "Sequence",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 87,
+        "args": [],
+        "decorators": [
+            92
+        ],
+        "children": [
+            68,
+            65
+        ]
+    },
+    "92": {
+        "id": 92,
+        "class": "Case",
+        "name": "",
+        "asset-pack": "core",
+        "args": [
+            [
+                "() => {",
+                "  return notepad.mimConfig.mimType != 'announce';",
+                "}"
+            ]
+        ]
+    },
+    "93": {
+        "id": 93,
+        "class": "Null",
+        "name": "Timeout (unimplemented)",
+        "asset-pack": "core",
+        "parent": 68,
+        "args": []
+    }
+}

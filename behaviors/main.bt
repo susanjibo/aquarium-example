@@ -1,0 +1,277 @@
+{
+    "1": {
+        "id": 1,
+        "class": "Sequence",
+        "name": "",
+        "args": [],
+        "children": [
+            2,
+            14,
+            3,
+            8
+        ]
+    },
+    "2": {
+        "id": 2,
+        "class": "ExecuteScript",
+        "name": "Init Aquarium Manager",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            [
+                "() => {",
+                "    if (!notepad.initialized) {",
+                "        notepad.initialized = true;",
+                "        console.log(`blackboard.AquariumManager: ${blackboard.AquariumManager != undefined}`);",
+                "",
+                "        blackboard.AquariumManager.addForeground();",
+                "        blackboard.AquariumManager.addFood(640,-10);",
+                "    }",
+                "}"
+            ]
+        ],
+        "skipped": false
+    },
+    "3": {
+        "id": 3,
+        "class": "Parallel",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            false
+        ],
+        "children": [
+            12,
+            9,
+            10,
+            11
+        ],
+        "skipped": false
+    },
+    "8": {
+        "id": 8,
+        "class": "Null",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": []
+    },
+    "9": {
+        "id": 9,
+        "class": "BehaviorBehavior",
+        "name": "Fish 1",
+        "asset-pack": "project",
+        "parent": 3,
+        "args": [
+            [
+                "() => {",
+                "  self.fish = blackboard.AquariumManager.addFish(\"fish_1\", \"Fish_OrangeMC\");",
+                "  self.fish.setPosition(650, 200);",
+                "}"
+            ],
+            [
+                "(result) =>  {",
+                "}"
+            ],
+            [
+                "(elapsedTime) =>  {",
+                "",
+                "    let now = new Date().getTime();",
+                "    if (!self.startTime) {",
+                "        self.startTime = now;",
+                "    }",
+                "",
+                "    if ((now - self.startTime) > 2000) {",
+                "        self.startTime = now;",
+                "",
+                "        if (self.fish) {",
+                "            self.fish.physics.velocity.x = -200;",
+                "        }",
+                "    }",
+                "    return {status:\"IN_PROGRESS\"}",
+                "}"
+            ]
+        ]
+    },
+    "10": {
+        "id": 10,
+        "class": "BehaviorBehavior",
+        "name": "Fish 2",
+        "asset-pack": "project",
+        "parent": 3,
+        "args": [
+            [
+                "() => {",
+                "  self.fish = blackboard.AquariumManager.addFish(\"fish_2\", \"Fish_BlueMC\");",
+                "  self.fish.setPosition(350, 400);",
+                "}"
+            ],
+            [
+                "(result) =>  {",
+                "}"
+            ],
+            [
+                "(elapsedTime) =>  {",
+                "",
+                "    let now = new Date().getTime();",
+                "    if (!self.startTime) {",
+                "        self.startTime = now;",
+                "    }",
+                "",
+                "    if ((now - self.startTime) > 2200) {",
+                "        self.startTime = now;",
+                "",
+                "        if (self.fish) {",
+                "            self.fish.physics.velocity.x = -180;",
+                "            self.fish.mc.gotoAndPlay(\"fast\");",
+                "        }",
+                "    }",
+                "    return {status:\"IN_PROGRESS\"}",
+                "}"
+            ]
+        ]
+    },
+    "11": {
+        "id": 11,
+        "class": "BehaviorBehavior",
+        "name": "Fish 3",
+        "asset-pack": "project",
+        "parent": 3,
+        "args": [
+            [
+                "() => {",
+                "  self.fish = blackboard.AquariumManager.addFish(\"fish_3\", \"Fish_PurpleMC\");",
+                "  self.fish.setPosition(100, 600);",
+                "  self.fish.scale.x = -1;",
+                "}"
+            ],
+            [
+                "(result) =>  {",
+                "}"
+            ],
+            [
+                "(elapsedTime) =>  {",
+                "",
+                "    let now = new Date().getTime();",
+                "    if (!self.startTime) {",
+                "        self.startTime = now;",
+                "    }",
+                "",
+                "    if ((now - self.startTime) > 2800) {",
+                "        self.startTime = now;",
+                "        self.fish.physics.velocity.x = 80;",
+                "    }",
+                "    return {status:\"IN_PROGRESS\"}",
+                "}"
+            ]
+        ]
+    },
+    "12": {
+        "id": 12,
+        "class": "Sequence",
+        "name": "",
+        "asset-pack": "core",
+        "parent": 3,
+        "args": [],
+        "children": [
+            13,
+            16
+        ],
+        "decorators": [
+            15
+        ]
+    },
+    "13": {
+        "id": 13,
+        "class": "Mim",
+        "name": "Get Aquarium Command",
+        "asset-pack": "project",
+        "parent": 12,
+        "args": [
+            [
+                "() =>  {",
+                "\treturn {",
+                "\t\tmimId: 'Aquarium',",
+                "\t\trulesPath: notepad.rulesPath,",
+                "\t\tmimsPath: notepad.mimsPath,",
+                "\t\tpromptData: {",
+                "\t\t\tcrewMember: 'Elroy'",
+                "\t\t}",
+                "\t}",
+                "}"
+            ],
+            [
+                "(status) =>  {",
+                "}"
+            ],
+            [
+                "(results) =>  {",
+                "  console.log(`main.bt: Aquarium Mim: onResults: `);",
+                "  console.log(results);",
+                "  ",
+                "  notepad.results = results;",
+                "}"
+            ]
+        ]
+    },
+    "14": {
+        "id": 14,
+        "class": "ExecuteScript",
+        "name": "Setup Mim Paths",
+        "asset-pack": "core",
+        "parent": 1,
+        "args": [
+            [
+                "() => {",
+                "  let path = require ('path');",
+                "  notepad.rulesPath = path.resolve(__dirname, '../rules/aquarium');",
+                "  notepad.mimsPath =  path.resolve(__dirname, '../mims/aquarium');",
+                "}"
+            ]
+        ]
+    },
+    "15": {
+        "id": 15,
+        "class": "WhileCondition",
+        "name": "",
+        "asset-pack": "core",
+        "args": [
+            [
+                "() => {",
+                "}"
+            ],
+            [
+                "() => {",
+                "    return true;",
+                "}"
+            ]
+        ]
+    },
+    "16": {
+        "id": 16,
+        "class": "ExecuteScript",
+        "name": "Analyze Command",
+        "asset-pack": "core",
+        "parent": 12,
+        "args": [
+            [
+                "() => {",
+                "  let asrResults = notepad.results.asrResults;",
+                "  let action = asrResults.nlParse.slotAction;",
+                "  ",
+                "  console.log(`Mim action: ${action}`);",
+                "  switch (action) {",
+                "    case 'feed':",
+                "      blackboard.AquariumManager.addFood(640,-10);",
+                "      break;",
+                "    case 'scare':",
+                "      break;",
+                "    case 'add':",
+                "      break;",
+                "  }",
+                "}"
+            ]
+        ]
+    }
+}

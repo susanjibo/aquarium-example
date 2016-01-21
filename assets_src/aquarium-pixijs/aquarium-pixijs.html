@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>aquarium-pixijs</title>
+
+
+<script>
+	// change the default namespace for the CreateJS libraries:
+	var pixiflash = pixiflash||{};
+	var createjs = pixiflash;
+</script>
+<script src="libs/easeljs-0.8.1.min.js"></script>
+<script src="libs/tweenjs-0.6.1.min.js"></script>
+<script src="libs/movieclip-0.8.1.min.js"></script>
+<script src="aquarium-pixijs.js"></script>
+
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+	canvas = document.getElementById("canvas");
+	exportRoot = new pixiflash_lib.aquariumpixijs();
+
+	stage = new pixiflash.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+
+	pixiflash.Ticker.setFPS(pixiflash_lib.properties.fps);
+	pixiflash.Ticker.addEventListener("tick", stage);
+}
+</script>
+</head>
+
+<body onload="init();" style="background-color:#D4D4D4">
+	<canvas id="canvas" width="1280" height="720" style="background-color:#333333"></canvas>
+</body>
+</html>

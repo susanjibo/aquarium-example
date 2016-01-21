@@ -1,0 +1,136 @@
+{
+    "header": {
+        "fileType": "DOFAnimation",
+        "version": "0.001",
+        "creationTime": 1430150006461
+    },
+    "content": {
+        "name": "/Users/francoislaberge/dev/jibo-template/animations/shaking-head.keys",
+        "channels": [
+            {
+                "dofName": "bottomSection_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "middleSection_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "topSection_r",
+                "times": [
+                    0,
+                    0.4666666666666667,
+                    0.9666666666666667
+                ],
+                "values": [
+                    -0.5061454830783556,
+                    0.6632251157578455,
+                    -0.4712388980384688
+                ],
+                "length": 0.9666666666666667
+            },
+            {
+                "dofName": "eyeTextureInfixBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    37.99997
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "eye_redChannelBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "eye_greenChannelBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "eye_blueChannelBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "overlayTextureInfixBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1000
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "overlay_redChannelBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "overlay_greenChannelBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "overlay_blueChannelBn_r",
+                "times": [
+                    0
+                ],
+                "values": [
+                    1
+                ],
+                "length": 0
+            },
+            {
+                "dofName": "overlay_textureSubRootBn_t_2",
+                "times": [
+                    0
+                ],
+                "values": [
+                    0
+                ],
+                "length": 0
+            }
+        ]
+    }
+}

@@ -1,0 +1,44 @@
+{
+  "mim_id": "Aquarium",
+  "skill_id": "aquarium",
+  "mim_type": "question",
+  "rule_name": "Aquarium",
+  "rule_slots": "",
+  "screen_slots_available": "true",
+  "sample_utterances": "feed the fish,give them some food",
+  "timeout": "6",
+  "force_confirmation": "false",
+  "barge_in": "true",
+  "photo_quality_light": "false",
+  "notes": "",
+  "modified": "1/16/2016 4:26:24 PM",
+  "prompts": [
+    {
+      "mim_id": "Aquarium",
+      "prompt_category": "Entry-Core",
+      "prompt_sub_category": "Q",
+      "index": "1",
+      "condition": "",
+      "prompt": "How can I help you with the aquarium?",
+      "media": "TTS"
+    },
+    {
+      "mim_id": "Aquarium",
+      "prompt_category": "Errors",
+      "prompt_sub_category": "NI",
+      "index": "1",
+      "condition": "",
+      "prompt": "So, How can I help you with the aquarium?",
+      "media": "TTS"
+    },
+    {
+      "mim_id": "Aquarium",
+      "prompt_category": "Errors",
+      "prompt_sub_category": "NM",
+      "index": "1",
+      "condition": "",
+      "prompt": "For example, I can feed the fish.",
+      "media": "TTS"
+    }
+  ]
+}
